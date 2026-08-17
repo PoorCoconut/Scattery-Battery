@@ -1,0 +1,264 @@
+[gd_scene format=3 uid="uid://dkfn167majhj1"]
+
+[ext_resource type="Script" uid="uid://lurp15tqma6y" path="res://systems/Mega Shop Menu Component/mega_shop_menu_component.gd" id="1_nq1pm"]
+[ext_resource type="Shader" uid="uid://ipbk6i6jt2va" path="res://vfx/shaders/scrolling.gdshader" id="2_kkuuj"]
+[ext_resource type="Texture2D" uid="uid://dqyh3pagolua" path="res://systems/Mega Shop Menu Component/mega_shop_bg.png" id="3_iopb7"]
+[ext_resource type="Texture2D" uid="uid://bp5gn11pwl7tv" path="res://objects/Bullets/bullets.png" id="4_2oyth"]
+[ext_resource type="FontFile" uid="uid://dp8fsptdm4isk" path="res://fonts/Tiny5/Tiny5-Regular.ttf" id="5_s10j0"]
+[ext_resource type="Texture2D" uid="uid://bsq5jxhctomel" path="res://game_assets/ui_sprites.png" id="6_s10j0"]
+[ext_resource type="PackedScene" uid="uid://dg257eg6glbq1" path="res://systems/Mega Shop Menu Component/Shop Item Row Component/shop_item_row_component.tscn" id="7_b66gw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2oyth"]
+shader = ExtResource("2_kkuuj")
+shader_parameter/rotate_degree = 0.0
+shader_parameter/move_degree = 0.0
+shader_parameter/speed = 0.10000000475
+shader_parameter/scale = 0.999999977648
+shader_parameter/gap = Vector2(0, 0)
+shader_parameter/node_scale = Vector2(1, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b66gw"]
+atlas = ExtResource("4_2oyth")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tisj3"]
+atlas = ExtResource("6_s10j0")
+region = Rect2(240, 0, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1d5i"]
+atlas = ExtResource("6_s10j0")
+region = Rect2(288, 0, 48, 117)
+
+[sub_resource type="GDScript" id="GDScript_b66gw"]
+script/source = "extends HBoxContainer
+
+@export var ship_image : Texture2D = preload(\"uid://b5ha2ebfytva7\")
+@export_multiline(\"ENTER ITEM DESCRIPTION\") var item_desc : String = \"DESCRIPTION\"
+##3 types: wpn, engi, hull
+@export var item_id : String = \"type_item\"
+
+@onready var item_label: RichTextLabel = $ItemLabel
+@onready var texture_button: TextureButton = $TextureButton
+var itemlabel_string : String = \"ITEM\"
+signal ir_button_hover(img : Texture2D, desc : String)
+signal ir_button_pressed(id : String)
+
+func _ready() -> void:
+	itemlabel_string = item_label.text
+
+func _on_texture_button_mouse_entered() -> void:
+	item_label.text = \"[wave amp=1.0]\" + itemlabel_string + \"[/wave]\"
+	ir_button_hover.emit(ship_image, item_desc)
+
+func _on_texture_button_mouse_exited() -> void:
+	item_label.text = itemlabel_string
+
+func _on_texture_button_pressed() -> void:
+	SoundBank.play_sfx(\"ui_buy\")
+	texture_button.disabled = true
+	ir_button_pressed.emit(item_id)
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqkix"]
+atlas = ExtResource("6_s10j0")
+region = Rect2(384, 0, 48, 117)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qb6so"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ttg1"]
+atlas = SubResource("CompressedTexture2D_qb6so")
+region = Rect2(240, 128, 48, 117)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b0etm"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cayk2"]
+atlas = SubResource("CompressedTexture2D_b0etm")
+region = Rect2(288, 128, 48, 117)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kaq28"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qip68"]
+atlas = SubResource("CompressedTexture2D_kaq28")
+region = Rect2(336, 128, 48, 117)
+
+[node name="MegaShopMenuComponent" type="CanvasLayer" unique_id=1984877129]
+script = ExtResource("1_nq1pm")
+
+[node name="Control" type="Control" parent="." unique_id=38718440]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="TextureRect" parent="Control" unique_id=1253731092]
+material = SubResource("ShaderMaterial_2oyth")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_iopb7")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=222188776]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=1917076235]
+layout_mode = 2
+
+[node name="Banner" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=1291519928]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/Banner" unique_id=1169014885]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[wave amp=3.0]WELCOME TO THE SECTOR SHOP"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/Banner" unique_id=1395319252]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/Banner/HBoxContainer" unique_id=636576158]
+layout_mode = 2
+texture = SubResource("AtlasTexture_b66gw")
+
+[node name="SectorPoints" type="Label" parent="Control/MarginContainer/VBoxContainer/Banner/HBoxContainer" unique_id=26741173]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00"
+
+[node name="SSMessage" type="Label" parent="Control/MarginContainer/VBoxContainer" unique_id=1326661867]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_s10j0")
+text = "Save the worlds, Void Vanguard!"
+horizontal_alignment = 1
+
+[node name="ShopProper" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=1306021974]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ImageContainer" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/ShopProper" unique_id=517742892]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tisj3")
+
+[node name="ShipImageBar" type="TextureProgressBar" parent="Control/MarginContainer/VBoxContainer/ShopProper/ImageContainer" unique_id=1937058760]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+max_value = 117.0
+value = 117.0
+fill_mode = 3
+texture_progress = SubResource("AtlasTexture_c1d5i")
+
+[node name="wpn_items" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/ShopProper" unique_id=321867570]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items" unique_id=440162492]
+layout_mode = 2
+text = "WEAPONS"
+
+[node name="ShopItemRowComponent" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items" unique_id=855921384 instance=ExtResource("7_b66gw")]
+layout_mode = 2
+script = SubResource("GDScript_b66gw")
+ship_image = SubResource("AtlasTexture_rqkix")
+item_desc = "DEVASTATING LIGHT TECH DEVELOPED FROM THE ERA OF WAR. 
+
+HOLD [X] TO CHARGE A [wave amp=1.0 freq=2.0]PIERCING LASER.[/wave]
+FIRING THE LASER WILL [wave amp=1.0 freq=2.0]SIGNIFICANTLY REDUCE TURNING SPEED."
+item_id = "wpn_novabeam"
+
+[node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent" index="1" unique_id=1008983197]
+text = "NOVA BEAM"
+
+[node name="ShopItemRowComponent2" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items" unique_id=1340335360 instance=ExtResource("7_b66gw")]
+layout_mode = 2
+ship_image = SubResource("AtlasTexture_0ttg1")
+item_desc = "ITS OUTER SHELL IS MADE OF A THIN SHEET OF NEUTRON STAR'S CORE.
+
+FIRE A MISSILE THAT PERSISTS AFTER HITTING AN ENEMY. [wave amp=1.0 freq=2.0]IT WILL BOUNCE TOWARD A RANDOM DIRECTION."
+item_id = "wpn_reboundmiss"
+
+[node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent2" index="1" unique_id=1008983197]
+text = "RBND MISSI."
+
+[node name="ShopItemRowComponent3" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items" unique_id=1518631865 instance=ExtResource("7_b66gw")]
+layout_mode = 2
+ship_image = SubResource("AtlasTexture_cayk2")
+item_desc = "CREATED THROUGH A RECURSIVE PROCESS FROM WARP TECHNOLOGY THAT CAME OUT OF THE UNIVERSE. 
+
+FIRE A FAST BOLT OF ENERGY THAT CAN [wave amp=1.0 freq=2.0]LOOP ACROSS THE BATTLEFIELD[/wave]. THE ENERGY CAN [wave amp=1.0 freq=2.0]HURT YOUR SHIP!"
+item_id = "wpn_reboundmiss"
+
+[node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent3" index="1" unique_id=1008983197]
+text = "WARP BOLT"
+
+[node name="ShopItemRowComponent4" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items" unique_id=1236526496 instance=ExtResource("7_b66gw")]
+layout_mode = 2
+ship_image = SubResource("AtlasTexture_qip68")
+item_desc = "CRUDE SCAVENGER TECH THAT BLASTS MATERIAL OUT INTO SPACE.
+
+BLAST A SPRAY OF SCRAP THAT CAN BRUTE ITSELF THROUGH HORDES WITH YOUR PROPULSION SYSTEM. YOU WILL GET SIGNIFICANTLY [wave amp=1.0 freq=2.0]KNOCKED BACK WHEN YOU FIRE THE WEAPON."
+item_id = "wpn_reboundmiss"
+
+[node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent4" index="1" unique_id=1008983197]
+text = "SCRAPYARD"
+
+[node name="ItemHintMessage" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper" unique_id=2009844807]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("5_s10j0")
+bbcode_enabled = true
+text = "CHARGE X TO UNLEASH A DEVASTATING ATTACK"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PageButtons" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=295977359]
+layout_mode = 2
+
+[node name="PrevButton" type="Button" parent="Control/MarginContainer/VBoxContainer/PageButtons" unique_id=1318959503]
+layout_mode = 2
+text = "←"
+
+[node name="Control" type="Control" parent="Control/MarginContainer/VBoxContainer/PageButtons" unique_id=2142593756]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NextButton" type="Button" parent="Control/MarginContainer/VBoxContainer/PageButtons" unique_id=1043922011]
+layout_mode = 2
+text = "→"
+
+[connection signal="ir_button_hover" from="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent" to="." method="_on_shop_item_row_component_ir_button_hover"]
+[connection signal="ir_button_pressed" from="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent" to="." method="_on_shop_item_row_component_ir_button_pressed"]
+[connection signal="ir_button_hover" from="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent2" to="." method="_on_shop_item_row_component_ir_button_hover"]
+[connection signal="ir_button_pressed" from="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent2" to="." method="_on_shop_item_row_component_ir_button_pressed"]
+[connection signal="ir_button_hover" from="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent3" to="." method="_on_shop_item_row_component_ir_button_hover"]
+[connection signal="ir_button_pressed" from="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent3" to="." method="_on_shop_item_row_component_ir_button_pressed"]
+[connection signal="ir_button_hover" from="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent4" to="." method="_on_shop_item_row_component_ir_button_hover"]
+[connection signal="ir_button_pressed" from="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent4" to="." method="_on_shop_item_row_component_ir_button_pressed"]
+
+[editable path="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent"]
+[editable path="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent2"]
+[editable path="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent3"]
+[editable path="Control/MarginContainer/VBoxContainer/ShopProper/wpn_items/ShopItemRowComponent4"]

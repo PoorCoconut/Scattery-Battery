@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://0ae1cms8lw8j"]
+
+[ext_resource type="Script" uid="uid://b0v7slebhokyc" path="res://globals/Konami Manager/konami_manager.gd" id="1_55wjr"]
+[ext_resource type="Script" uid="uid://rs60b3fygs8g" path="res://globals/Konami Manager/konami_code.gd" id="2_85svm"]
+[ext_resource type="Resource" uid="uid://c3sx0fdnr66mc" path="res://globals/Konami Manager/codes/kon_classic.tres" id="3_q3ot0"]
+[ext_resource type="Resource" uid="uid://crsmdrgwyvl32" path="res://globals/Konami Manager/codes/kon_cross.tres" id="4_q3ot0"]
+[ext_resource type="Resource" uid="uid://degcg616pytwi" path="res://globals/Konami Manager/codes/kon_money.tres" id="5_aaqbt"]
+[ext_resource type="Resource" uid="uid://usagrlneroxb" path="res://globals/Konami Manager/codes/kon_boss.tres" id="6_pvngf"]
+[ext_resource type="Resource" uid="uid://dq5ja86ijip8j" path="res://globals/Konami Manager/codes/kon_shop.tres" id="7_vgdfb"]
+
+[node name="KonamiManager" type="Node" unique_id=1739586380]
+script = ExtResource("1_55wjr")
+codes = Array[ExtResource("2_85svm")]([ExtResource("3_q3ot0"), ExtResource("4_q3ot0"), ExtResource("5_aaqbt"), ExtResource("6_pvngf"), ExtResource("7_vgdfb")])

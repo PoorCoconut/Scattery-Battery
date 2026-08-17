@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bn5ilj6dvhaem"]
+
+[ext_resource type="Script" uid="uid://cgaoaygk14kc2" path="res://globals/Simple Music Manager/simple_music_manager.gd" id="1_txlap"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_b80f1"]
+stream_count = 6
+stream_0/volume = 0.0
+stream_1/volume = 0.0
+stream_2/volume = -60.0
+stream_3/volume = -60.0
+stream_4/volume = -60.0
+stream_5/volume = -60.0
+
+[node name="SimpleMusicManager" type="Node" unique_id=2006899512]
+process_mode = 3
+script = ExtResource("1_txlap")
+
+[node name="Base" type="AudioStreamPlayer" parent="." unique_id=1340119013]
+stream = SubResource("AudioStreamSynchronized_b80f1")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"

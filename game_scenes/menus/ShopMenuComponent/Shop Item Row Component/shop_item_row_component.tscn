@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dg257eg6glbq1"]
+
+[ext_resource type="Script" uid="uid://chafs3hijr8gt" path="res://systems/Mega Shop Menu Component/Shop Item Row Component/shop_item_row_component.gd" id="1_ffm7e"]
+[ext_resource type="Texture2D" uid="uid://bsq5jxhctomel" path="res://game_assets/ui_sprites.png" id="1_jx2u0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5ejf"]
+atlas = ExtResource("1_jx2u0")
+region = Rect2(336, 0, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffm7e"]
+atlas = ExtResource("1_jx2u0")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qb6so"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_desr4"]
+atlas = SubResource("CompressedTexture2D_qb6so")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b0etm"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byufa"]
+atlas = SubResource("CompressedTexture2D_b0etm")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kaq28"]
+load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcuwe"]
+atlas = SubResource("CompressedTexture2D_kaq28")
+region = Rect2(16, 0, 8, 8)
+
+[node name="ShopItemRowComponent" type="HBoxContainer" unique_id=855921384]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ffm7e")
+ship_image = SubResource("AtlasTexture_l5ejf")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=500948889]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ffm7e")
+texture_pressed = SubResource("AtlasTexture_desr4")
+texture_hover = SubResource("AtlasTexture_byufa")
+texture_disabled = SubResource("AtlasTexture_gcuwe")
+stretch_mode = 3
+
+[node name="ItemLabel" type="RichTextLabel" parent="." unique_id=1008983197]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "ITEM"
+fit_content = true
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

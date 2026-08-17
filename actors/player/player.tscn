@@ -8,7 +8,7 @@
 
 [node name="Player" type="CharacterBody2D" unique_id=823440349 groups=["player"]]
 script = ExtResource("1_nvxhs")
-FRICTION = 20.0
+FRICTION = 35.0
 
 [node name="HealthComponent" parent="." unique_id=1869818733 instance=ExtResource("2_ilk7j")]
 MAX_HP = 3

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="KonamiCode" format=3 uid="uid://crsmdrgwyvl32"]
+
+[ext_resource type="Script" uid="uid://rs60b3fygs8g" path="res://globals/Konami Manager/konami_code.gd" id="1_6gcce"]
+
+[resource]
+script = ExtResource("1_6gcce")
+code_name = "cross"
+sequence = Array[String](["up", "turn_right", "up", "turn_left", "up", "turn_left", "down", "turn_left", "down", "turn_right", "down", "turn_right"])
+single_use = true
+metadata/_custom_type_script = "uid://rs60b3fygs8g"

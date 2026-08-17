@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="KonamiCode" format=3 uid="uid://degcg616pytwi"]
+
+[ext_resource type="Script" uid="uid://rs60b3fygs8g" path="res://globals/Konami Manager/konami_code.gd" id="1_bcxcp"]
+
+[resource]
+script = ExtResource("1_bcxcp")
+code_name = "money"
+sequence = Array[String](["turn_left", "turn_right", "up", "up", "move", "shoot", "up", "down"])
+single_use = true
+metadata/_custom_type_script = "uid://rs60b3fygs8g"
