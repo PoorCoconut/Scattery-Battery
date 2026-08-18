@@ -6,6 +6,9 @@ class_name Player
 @onready var hitbox_component: HitboxComponent = $HitboxComponent
 @onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
 
+@onready var charge_light: PointLight2D = $ChargeLight
+
+#player variables
 @export var SPEED = 100.0
 @export var ACCELERATION = 50.0
 @export var FRICTION = 5.0
@@ -14,6 +17,9 @@ class_name Player
 
 var time_held = 0.0
 var charging = false
+
+func _ready():
+	hurtbox_component.connect("knockback_received", _on_knockback_received)
 
 func _physics_process(delta):
 	look_at(get_global_mouse_position())
@@ -29,3 +35,7 @@ func _physics_process(delta):
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 	move_and_slide()
+
+
+func _on_knockback_received(direction: Vector2, force: float) -> void:
+	velocity += direction * force

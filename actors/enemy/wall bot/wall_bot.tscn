@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://n8213ixkqljs"]
+
+[ext_resource type="PackedScene" uid="uid://cd0gji0ohlvxv" path="res://systems/Entity Components/Health Component/HealthComponent.tscn" id="1_fwi31"]
+[ext_resource type="Script" uid="uid://g1t2gx16p202" path="res://actors/enemy/wall bot/wall_bot.gd" id="1_njjrd"]
+[ext_resource type="PackedScene" uid="uid://c58coiv6jurie" path="res://systems/Entity Components/Hitbox and Hurtbox Components/HitBox/hitbox_component.tscn" id="2_njjrd"]
+[ext_resource type="PackedScene" uid="uid://p3eg848tu85" path="res://systems/Entity Components/Hitbox and Hurtbox Components/HurtBox/hurtbox_component.tscn" id="3_4jwmu"]
+[ext_resource type="Texture2D" uid="uid://xuh8rsknn4jr" path="res://game_assets/gen_sprites.png" id="4_5npi3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njjrd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jwmu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kxuq"]
+atlas = ExtResource("4_5npi3")
+region = Rect2(0, 128, 16, 16)
+
+[node name="WallBot" type="CharacterBody2D" unique_id=1690005590]
+collision_layer = 2
+script = ExtResource("1_njjrd")
+
+[node name="HealthComponent" parent="." unique_id=1869818733 instance=ExtResource("1_fwi31")]
+
+[node name="HitboxComponent" parent="." unique_id=1755790887 instance=ExtResource("2_njjrd")]
+collision_layer = 64
+damage = 0
+knockback_force = 80.0
+
+[node name="CollisionShape2D" parent="HitboxComponent" index="0" unique_id=939226382]
+shape = SubResource("RectangleShape2D_njjrd")
+
+[node name="HurtboxComponent" parent="." unique_id=330416737 node_paths=PackedStringArray("health_component") instance=ExtResource("3_4jwmu")]
+collision_layer = 128
+collision_mask = 272
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=1993016751]
+shape = SubResource("RectangleShape2D_4jwmu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=525828850]
+texture = SubResource("AtlasTexture_4kxuq")
+
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="hp_changed" from="HealthComponent" to="." method="_on_health_component_hp_changed"]
+
+[editable path="HitboxComponent"]
+[editable path="HurtboxComponent"]

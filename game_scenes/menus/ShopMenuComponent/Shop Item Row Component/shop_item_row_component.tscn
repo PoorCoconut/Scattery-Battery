@@ -1,36 +1,26 @@
 [gd_scene format=3 uid="uid://dg257eg6glbq1"]
 
-[ext_resource type="Script" uid="uid://chafs3hijr8gt" path="res://systems/Mega Shop Menu Component/Shop Item Row Component/shop_item_row_component.gd" id="1_ffm7e"]
-[ext_resource type="Texture2D" uid="uid://bsq5jxhctomel" path="res://game_assets/ui_sprites.png" id="1_jx2u0"]
+[ext_resource type="Script" uid="uid://chafs3hijr8gt" path="res://game_scenes/menus/ShopMenuComponent/Shop Item Row Component/shop_item_row_component.gd" id="1_ffm7e"]
+[ext_resource type="Texture2D" uid="uid://xuh8rsknn4jr" path="res://game_assets/gen_sprites.png" id="2_ohnta"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l5ejf"]
-atlas = ExtResource("1_jx2u0")
 region = Rect2(336, 0, 48, 117)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ffm7e"]
-atlas = ExtResource("1_jx2u0")
-region = Rect2(0, 0, 8, 8)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qb6so"]
-load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
+atlas = ExtResource("2_ohnta")
+region = Rect2(0, 144, 7, 7)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_desr4"]
-atlas = SubResource("CompressedTexture2D_qb6so")
-region = Rect2(0, 8, 8, 8)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b0etm"]
-load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
+atlas = ExtResource("2_ohnta")
+region = Rect2(14, 144, 7, 7)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_byufa"]
-atlas = SubResource("CompressedTexture2D_b0etm")
-region = Rect2(8, 0, 8, 8)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kaq28"]
-load_path = "res://.godot/imported/ui_sprites.png-c4d70addc897b7fec391da11e8fec6ee.ctex"
+atlas = ExtResource("2_ohnta")
+region = Rect2(7, 144, 7, 7)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gcuwe"]
-atlas = SubResource("CompressedTexture2D_kaq28")
-region = Rect2(16, 0, 8, 8)
+atlas = ExtResource("2_ohnta")
+region = Rect2(0, 151, 7, 7)
 
 [node name="ShopItemRowComponent" type="HBoxContainer" unique_id=855921384]
 anchors_preset = 15

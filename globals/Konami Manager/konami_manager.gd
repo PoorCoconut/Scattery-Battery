@@ -41,7 +41,7 @@ func _check_code(code: KonamiCode, event: InputEvent) -> void:
 			if code.single_use:
 				code.used_up = true
 			code_entered.emit(code.code_name)
-			SoundBank.play_sfx("dispell")
+			#SoundBank.play_sfx("dispell")
 			_progress[code] = 0
 	else:
 		if event.is_action_pressed(code.sequence[0]):

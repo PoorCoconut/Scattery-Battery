@@ -11,15 +11,17 @@ class_name SectorShopMenuComponent
 
 
 var shop_messages : Array = [
-	"Welcome to the station!  Find anything interesting?",
-	"Anything to upgrade on this fine galactic evening?",
-	"Weapons primed - Modules checked - Upgrades delivered!",
-	"Our deals are already discounted just for you! Save the Universe!",
-	"The Void Vanguard docks into the sector shop!",
-	"They say if you look at the galaxy's stars you'll find a secret path!",
-	"Have you been to Apocrypha?",
-	"Save the worlds, Void Vanguard!",
-	
+	"Captured Again? Maybe my wares can help.",
+	"Find anything useful?",
+	"How far did you get this time?",
+	"Hello World!",
+	"Beep Boop",
+	"Keep getting hit? What about shields?",
+	"Back again?",
+	"Have you ever tried dodging?",
+	"I'm CHARGE-ing you extra. Heh Heh.",
+	"Use your battery wisely!",
+	"Got some scrap? Hit me up!"
 	]
 
 func _ready() -> void:
@@ -28,13 +30,12 @@ func _ready() -> void:
 	show_shop()
 
 func show_shop():
-	Events.change_melody.emit("shop")
+	#Events.change_melody.emit("shop")
 	var tween = get_tree().create_tween()
 	tween.tween_property(ss_message, "visible_ratio", 1.0, message_dur)
 
 func hide_shop():
 	pass
-
 
 func _on_shop_item_row_component_ir_button_hover(img: Texture2D, desc: String) -> void:
 	ship_image_bar.value = 0.0
