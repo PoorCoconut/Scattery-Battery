@@ -29,6 +29,8 @@ shader_parameter/gap = Vector2(0, 0)
 shader_parameter/node_scale = Vector2(1, 2.9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b66gw"]
+atlas = ExtResource("5_dnvi6")
+region = Rect2(49, 49, 14, 14)
 
 [sub_resource type="FontVariation" id="FontVariation_v28xm"]
 base_font = ExtResource("4_v28xm")

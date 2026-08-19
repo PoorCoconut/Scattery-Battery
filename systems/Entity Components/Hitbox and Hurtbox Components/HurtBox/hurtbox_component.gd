@@ -19,7 +19,11 @@ func _on_area_entered(area: Area2D) -> void:
 			#print(get_parent().name + " hit for " + str(hitbox.damage) + " damage")
 			health_component.take_damage(hitbox.damage)
 		
-		var knockback_dir = (global_position - hitbox.global_position).normalized()
+		var knockback_dir: Vector2
+		if hitbox.use_fixed_direction:
+			knockback_dir = hitbox.fixed_direction.normalized()
+		else:
+			knockback_dir = (global_position - hitbox.global_position).normalized()
 		var final_knockback = max(0.0, hitbox.knockback_force - weight)
 		
 		if movement_component:

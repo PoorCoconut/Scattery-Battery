@@ -23,6 +23,9 @@ radius = 9.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_d1e8e"]
 radius = 4.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
+radius = 7.071068
+
 [node name="Player" type="CharacterBody2D" unique_id=823440349 groups=["player"]]
 script = ExtResource("1_nvxhs")
 
@@ -44,6 +47,7 @@ knockback_force = 50.0
 
 [node name="CollisionShape2D" parent="HitboxComponent" index="0" unique_id=939226382]
 shape = SubResource("CircleShape2D_6p1w3")
+debug_color = Color(1, 0, 0.15686275, 0)
 
 [node name="HurtboxComponent" parent="." unique_id=330416737 node_paths=PackedStringArray("health_component") instance=ExtResource("4_6p1w3")]
 collision_layer = 32
@@ -63,6 +67,10 @@ stream = ExtResource("7_bop6h")
 pitch_scale = 0.01
 autoplay = true
 bus = &"SFX"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=679441233]
+shape = SubResource("CircleShape2D_4kxuq")
+debug_color = Color(0.64893085, 0.520807, 1.540184e-06, 0)
 
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="hp_changed" from="HealthComponent" to="." method="_on_health_component_hp_changed"]

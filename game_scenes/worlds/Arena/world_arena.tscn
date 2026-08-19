@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cga3jb4ujhm6d" path="res://game_assets/backgrounds.png" id="1_walyg"]
 [ext_resource type="PackedScene" uid="uid://n8213ixkqljs" path="res://actors/enemy/wall bot/wall_bot.tscn" id="4_ovqr8"]
 [ext_resource type="PackedScene" uid="uid://b3fobc4mms4jw" path="res://systems/World Camera Component/world_camera_component.tscn" id="5_78dxu"]
+[ext_resource type="PackedScene" uid="uid://dximqgupsc1hd" path="res://systems/GameWall/game_wall.tscn" id="6_y25yp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_15y17"]
 shader = ExtResource("1_vkc4w")
@@ -35,3 +36,5 @@ position = Vector2(128, 64)
 [node name="WorldCameraComponent" parent="." unique_id=1725945058 instance=ExtResource("5_78dxu")]
 camera_mode = 0
 following = false
+
+[node name="GameWall" parent="." unique_id=2101579326 instance=ExtResource("6_y25yp")]
