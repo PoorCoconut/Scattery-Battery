@@ -19,11 +19,12 @@ collision_layer = 2
 script = ExtResource("1_njjrd")
 
 [node name="HealthComponent" parent="." unique_id=1869818733 instance=ExtResource("1_fwi31")]
+MAX_HP = 2
 
 [node name="HitboxComponent" parent="." unique_id=1755790887 instance=ExtResource("2_njjrd")]
 collision_layer = 64
 damage = 0
-knockback_force = 80.0
+knockback_force = 150.0
 
 [node name="CollisionShape2D" parent="HitboxComponent" index="0" unique_id=939226382]
 shape = SubResource("RectangleShape2D_njjrd")

@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://ipbk6i6jt2va" path="res://vfx/shaders/scrolling.gdshader" id="1_vkc4w"]
 [ext_resource type="Texture2D" uid="uid://cga3jb4ujhm6d" path="res://game_assets/backgrounds.png" id="1_walyg"]
 [ext_resource type="PackedScene" uid="uid://n8213ixkqljs" path="res://actors/enemy/wall bot/wall_bot.tscn" id="4_ovqr8"]
+[ext_resource type="PackedScene" uid="uid://b3fobc4mms4jw" path="res://systems/World Camera Component/world_camera_component.tscn" id="5_78dxu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_15y17"]
 shader = ExtResource("1_vkc4w")
@@ -19,12 +20,18 @@ shader_parameter/node_scale = Vector2(0.5, 0.5)
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1849289108]
 z_index = -2
 material = SubResource("ShaderMaterial_15y17")
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 328.0
+offset_bottom = 188.0
 texture = ExtResource("1_walyg")
 
 [node name="Player" parent="." unique_id=823440349 instance=ExtResource("1_uxq43")]
-position = Vector2(24, 88)
+position = Vector2(29, 92)
 
 [node name="WallBot" parent="." unique_id=1690005590 instance=ExtResource("4_ovqr8")]
 position = Vector2(128, 64)
+
+[node name="WorldCameraComponent" parent="." unique_id=1725945058 instance=ExtResource("5_78dxu")]
+camera_mode = 0
+following = false

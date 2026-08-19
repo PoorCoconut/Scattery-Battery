@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c58coiv6jurie" path="res://systems/Entity Components/Hitbox and Hurtbox Components/HitBox/hitbox_component.tscn" id="3_lsqbn"]
 [ext_resource type="PackedScene" uid="uid://p3eg848tu85" path="res://systems/Entity Components/Hitbox and Hurtbox Components/HurtBox/hurtbox_component.tscn" id="4_6p1w3"]
 [ext_resource type="PackedScene" uid="uid://depdp5g8qy1y" path="res://systems/Trail Component/trail.tscn" id="6_15y17"]
+[ext_resource type="AudioStream" uid="uid://c05rr0cnmmjb2" path="res://sound/sfx/sfx_charge1.mp3" id="7_bop6h"]
 
 [sub_resource type="Gradient" id="Gradient_6p1w3"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -24,7 +25,6 @@ radius = 4.0
 
 [node name="Player" type="CharacterBody2D" unique_id=823440349 groups=["player"]]
 script = ExtResource("1_nvxhs")
-FRICTION = 35.0
 
 [node name="ChargeLight" type="PointLight2D" parent="." unique_id=590319133]
 texture_filter = 1
@@ -55,6 +55,17 @@ shape = SubResource("CircleShape2D_d1e8e")
 
 [node name="Trail" parent="." unique_id=1115313834 instance=ExtResource("6_15y17")]
 MAX_LENGTH = 50
+
+[node name="Sounds" type="Node" parent="." unique_id=918852859]
+
+[node name="ChargeSFX" type="AudioStreamPlayer" parent="Sounds" unique_id=285505262]
+stream = ExtResource("7_bop6h")
+pitch_scale = 0.01
+autoplay = true
+bus = &"SFX"
+
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="hp_changed" from="HealthComponent" to="." method="_on_health_component_hp_changed"]
 
 [editable path="HitboxComponent"]
 [editable path="HurtboxComponent"]
