@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://lm5apyaik0bb"]
+
+[ext_resource type="Script" uid="uid://hsoe5tkg5cux" path="res://systems/BulletSpawner/bullet_spawner.gd" id="1_fxvi3"]
+
+[node name="BulletSpawner" type="Node2D" unique_id=932716607]
+script = ExtResource("1_fxvi3")

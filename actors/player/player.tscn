@@ -43,6 +43,7 @@ texture = ExtResource("3_6p1w3")
 
 [node name="HitboxComponent" parent="." unique_id=1755790887 instance=ExtResource("3_lsqbn")]
 collision_layer = 16
+damage = 2
 knockback_force = 50.0
 
 [node name="CollisionShape2D" parent="HitboxComponent" index="0" unique_id=939226382]

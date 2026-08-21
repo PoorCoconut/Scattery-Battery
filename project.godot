@@ -42,6 +42,7 @@ window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 mouse_cursor/custom_image="uid://bnp5lty7ue75c"
+mouse_cursor/custom_image_hotspot=Vector2(10, 10)
 
 [file_customization]
 

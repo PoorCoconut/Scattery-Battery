@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://buu7amv76l5he"]
+
+[ext_resource type="Script" uid="uid://bhn2yd5iullqu" path="res://game_objects/Pillar/pillar.gd" id="1_pdxnt"]
+[ext_resource type="PackedScene" uid="uid://cd0gji0ohlvxv" path="res://systems/Entity Components/Health Component/HealthComponent.tscn" id="1_vuppa"]
+[ext_resource type="PackedScene" uid="uid://c58coiv6jurie" path="res://systems/Entity Components/Hitbox and Hurtbox Components/HitBox/hitbox_component.tscn" id="2_pdxnt"]
+[ext_resource type="PackedScene" uid="uid://p3eg848tu85" path="res://systems/Entity Components/Hitbox and Hurtbox Components/HurtBox/hurtbox_component.tscn" id="3_qbnxg"]
+[ext_resource type="Texture2D" uid="uid://d2uvd4odmjr4k" path="res://game_assets/menu/square_particles.png" id="4_goqk0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdxnt"]
+size = Vector2(8, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbnxg"]
+size = Vector2(16, 256)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4kxuq"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_mti6b"]
+_data = [Vector2(0, 0), 0.0, 13.532307, 0, 0, Vector2(0.080851056, 0.988764), 0.0, 0.0, 0, 0, Vector2(0.8978723, 0.505618), -1.9803375, -1.9803375, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="Pillar" type="CharacterBody2D" unique_id=1657492341]
+script = ExtResource("1_pdxnt")
+
+[node name="HealthComponent" parent="." unique_id=1869818733 instance=ExtResource("1_vuppa")]
+MAX_HP = 2
+
+[node name="HitboxComponent" parent="." unique_id=1755790887 instance=ExtResource("2_pdxnt")]
+collision_layer = 64
+damage = 0
+knockback_force = 100.0
+use_fixed_direction = true
+fixed_direction = Vector2(-1, 0)
+
+[node name="CollisionShape2D" parent="HitboxComponent" index="0" unique_id=939226382]
+shape = SubResource("RectangleShape2D_pdxnt")
+
+[node name="HurtboxComponent" parent="." unique_id=330416737 node_paths=PackedStringArray("health_component") instance=ExtResource("3_qbnxg")]
+collision_layer = 128
+collision_mask = 16
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=1993016751]
+shape = SubResource("RectangleShape2D_qbnxg")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1556858516]
+material = SubResource("CanvasItemMaterial_4kxuq")
+amount = 100
+texture = ExtResource("4_goqk0")
+lifetime = 0.3
+emission_shape = 3
+emission_rect_extents = Vector2(1, 100)
+gravity = Vector2(100, 0)
+damping_min = 10.0
+damping_max = 100.0
+angle_min = -10.0
+angle_max = 10.0
+scale_amount_curve = SubResource("Curve_mti6b")
+anim_speed_max = 1.0
+
+[node name="OnScreen" type="VisibleOnScreenNotifier2D" parent="." unique_id=69611010]
+position = Vector2(8, 0)
+rect = Rect2(-72, -128, 128, 256)
+
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="screen_exited" from="OnScreen" to="." method="_on_on_screen_screen_exited"]
+
+[editable path="HitboxComponent"]
+[editable path="HurtboxComponent"]

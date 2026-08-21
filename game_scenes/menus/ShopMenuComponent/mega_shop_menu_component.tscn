@@ -7,6 +7,44 @@
 [ext_resource type="Texture2D" uid="uid://xuh8rsknn4jr" path="res://game_assets/gen_sprites.png" id="5_dnvi6"]
 [ext_resource type="FontFile" uid="uid://dp8fsptdm4isk" path="res://fonts/Tiny5/Tiny5-Regular.ttf" id="5_s10j0"]
 [ext_resource type="PackedScene" uid="uid://dg257eg6glbq1" path="res://game_scenes/menus/ShopMenuComponent/Shop Item Row Component/shop_item_row_component.tscn" id="6_d1e8e"]
+[ext_resource type="Texture2D" uid="uid://b3l2r4syc7vg1" path="res://game_assets/menu/player_upgrades.png" id="6_v5alq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5alq"]
+atlas = ExtResource("6_v5alq")
+region = Rect2(48, 0, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1cs1"]
+atlas = ExtResource("6_v5alq")
+region = Rect2(96, 0, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nne14"]
+atlas = ExtResource("6_v5alq")
+region = Rect2(288, 0, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kq0g"]
+atlas = ExtResource("6_v5alq")
+region = Rect2(384, 117, 48, 117)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c1cs1"]
+load_path = "res://.godot/imported/player_upgrades.png-420568478126587e5b5a50a3216fdde1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33wd3"]
+atlas = SubResource("CompressedTexture2D_c1cs1")
+region = Rect2(0, 117, 48, 117)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mxrd8"]
+load_path = "res://.godot/imported/player_upgrades.png-420568478126587e5b5a50a3216fdde1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qyu4"]
+atlas = SubResource("CompressedTexture2D_mxrd8")
+region = Rect2(0, 234, 48, 117)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b3xxp"]
+load_path = "res://.godot/imported/player_upgrades.png-420568478126587e5b5a50a3216fdde1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_malya"]
+atlas = SubResource("CompressedTexture2D_b3xxp")
+region = Rect2(0, 351, 48, 117)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2oyth"]
 resource_local_to_scene = true
@@ -36,16 +74,180 @@ region = Rect2(49, 49, 14, 14)
 base_font = ExtResource("4_v28xm")
 spacing_glyph = 2
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tisj3"]
-atlas = ExtResource("5_dnvi6")
-region = Rect2(80, 0, 48, 117)
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3pel"]
+atlas = ExtResource("6_v5alq")
+region = Rect2(0, 0, 48, 117)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c1d5i"]
-atlas = ExtResource("5_dnvi6")
-region = Rect2(128, 0, 48.039284, 117.050575)
+[sub_resource type="AtlasTexture" id="AtlasTexture_g28q7"]
+atlas = ExtResource("6_v5alq")
+region = Rect2(48, 0, 48, 117)
 
-[node name="MegaShopMenuComponent" type="CanvasLayer" unique_id=1984877129]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewv7p"]
+atlas = ExtResource("6_v5alq")
+region = Rect2(0, 117, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bypw3"]
+atlas = ExtResource("6_v5alq")
+region = Rect2(0, 234, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qgum"]
+atlas = ExtResource("6_v5alq")
+region = Rect2(0, 351, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w46ac"]
+atlas = ExtResource("6_v5alq")
+region = Rect2(384, 351, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ausu"]
+atlas = ExtResource("6_v5alq")
+region = Rect2(144, 117, 48, 117)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n13xn"]
+load_path = "res://.godot/imported/player_upgrades.png-420568478126587e5b5a50a3216fdde1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wg5n1"]
+atlas = SubResource("CompressedTexture2D_n13xn")
+region = Rect2(96, 117, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfmjy"]
+atlas = ExtResource("6_v5alq")
+region = Rect2(144, 0, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1t7e8"]
+atlas = ExtResource("6_v5alq")
+region = Rect2(240, 117, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1l4qi"]
+atlas = SubResource("CompressedTexture2D_n13xn")
+region = Rect2(192, 117, 48, 117)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v5alq"]
+load_path = "res://.godot/imported/player_upgrades.png-420568478126587e5b5a50a3216fdde1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oc82b"]
+atlas = SubResource("CompressedTexture2D_v5alq")
+region = Rect2(192, 0, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yn1w1"]
+atlas = ExtResource("6_v5alq")
+region = Rect2(336, 117, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftayh"]
+atlas = SubResource("CompressedTexture2D_n13xn")
+region = Rect2(288, 117, 48, 117)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_33wd3"]
+load_path = "res://.godot/imported/player_upgrades.png-420568478126587e5b5a50a3216fdde1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxrd8"]
+atlas = SubResource("CompressedTexture2D_33wd3")
+region = Rect2(240, 0, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygiq0"]
+atlas = ExtResource("6_v5alq")
+region = Rect2(144, 234, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ws8ef"]
+atlas = SubResource("CompressedTexture2D_n13xn")
+region = Rect2(96, 234, 48, 117)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5qyu4"]
+load_path = "res://.godot/imported/player_upgrades.png-420568478126587e5b5a50a3216fdde1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3xxp"]
+atlas = SubResource("CompressedTexture2D_5qyu4")
+region = Rect2(336, 0, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2crgl"]
+atlas = ExtResource("6_v5alq")
+region = Rect2(240, 234, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8a32"]
+atlas = SubResource("CompressedTexture2D_n13xn")
+region = Rect2(192, 234, 48, 117)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_malya"]
+load_path = "res://.godot/imported/player_upgrades.png-420568478126587e5b5a50a3216fdde1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28cym"]
+atlas = SubResource("CompressedTexture2D_malya")
+region = Rect2(384, 0, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyt8o"]
+atlas = ExtResource("6_v5alq")
+region = Rect2(336, 234, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4kec"]
+atlas = SubResource("CompressedTexture2D_n13xn")
+region = Rect2(288, 234, 48, 117)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3rqed"]
+load_path = "res://.godot/imported/player_upgrades.png-420568478126587e5b5a50a3216fdde1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fql8o"]
+atlas = SubResource("CompressedTexture2D_3rqed")
+region = Rect2(432, 0, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfenv"]
+atlas = ExtResource("6_v5alq")
+region = Rect2(144, 351, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bykhl"]
+atlas = SubResource("CompressedTexture2D_n13xn")
+region = Rect2(96, 351, 48, 117)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0dfia"]
+load_path = "res://.godot/imported/player_upgrades.png-420568478126587e5b5a50a3216fdde1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2dy8"]
+atlas = SubResource("CompressedTexture2D_0dfia")
+region = Rect2(432, 117, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvo5g"]
+atlas = ExtResource("6_v5alq")
+region = Rect2(240, 351, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2amvs"]
+atlas = SubResource("CompressedTexture2D_n13xn")
+region = Rect2(192, 351, 48, 117)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pf0ck"]
+load_path = "res://.godot/imported/player_upgrades.png-420568478126587e5b5a50a3216fdde1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbejq"]
+atlas = SubResource("CompressedTexture2D_pf0ck")
+region = Rect2(384, 234, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xjli"]
+atlas = ExtResource("6_v5alq")
+region = Rect2(336, 351, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv0yj"]
+atlas = SubResource("CompressedTexture2D_n13xn")
+region = Rect2(288, 351, 48, 117)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hld8g"]
+load_path = "res://.godot/imported/player_upgrades.png-420568478126587e5b5a50a3216fdde1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xcib"]
+atlas = SubResource("CompressedTexture2D_hld8g")
+region = Rect2(432, 234, 48, 117)
+
+[node name="MegaShopMenuComponent" type="CanvasLayer" unique_id=1984877129 node_paths=PackedStringArray("category_containers")]
 script = ExtResource("1_nq1pm")
+category_containers = [NodePath("Control/MarginContainer/VBoxContainer/ShopProper/SYSTEM_UPGRADES"), NodePath("Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items"), NodePath("Control/MarginContainer/VBoxContainer/ShopProper/HEART_items"), NodePath("Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items")]
+category_names = Array[String](["system", "head", "heart", "thrust"])
+category_title_textures = Dictionary[String, Texture2D]({
+"head": SubResource("AtlasTexture_c1cs1"),
+"heart": SubResource("AtlasTexture_nne14"),
+"system": SubResource("AtlasTexture_v5alq"),
+"thrust": SubResource("AtlasTexture_1kq0g")
+})
+category_default_textures = Dictionary[String, Texture2D]({
+"head": SubResource("AtlasTexture_33wd3"),
+"heart": SubResource("AtlasTexture_5qyu4"),
+"thrust": SubResource("AtlasTexture_malya")
+})
 
 [node name="Control" type="Control" parent="." unique_id=38718440]
 layout_mode = 3
@@ -221,7 +423,7 @@ layout_mode = 2
 layout_mode = 2
 texture = SubResource("AtlasTexture_b66gw")
 
-[node name="SectorPoints" type="Label" parent="Control/MarginContainer/VBoxContainer/Banner/HBoxContainer" unique_id=26741173]
+[node name="Scrap" type="Label" parent="Control/MarginContainer/VBoxContainer/Banner/HBoxContainer" unique_id=26741173]
 unique_name_in_owner = true
 layout_mode = 2
 text = "00"
@@ -239,9 +441,9 @@ size_flags_vertical = 3
 
 [node name="ImageContainer" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/ShopProper" unique_id=517742892]
 layout_mode = 2
-texture = SubResource("AtlasTexture_tisj3")
+texture = SubResource("AtlasTexture_j3pel")
 
-[node name="ShipImageBar" type="TextureProgressBar" parent="Control/MarginContainer/VBoxContainer/ShopProper/ImageContainer" unique_id=1937058760]
+[node name="TitleImage" type="TextureProgressBar" parent="Control/MarginContainer/VBoxContainer/ShopProper/ImageContainer" unique_id=1937058760]
 unique_name_in_owner = true
 layout_mode = 0
 offset_right = 40.0
@@ -249,27 +451,210 @@ offset_bottom = 40.0
 max_value = 117.0
 value = 117.0
 fill_mode = 3
-texture_progress = SubResource("AtlasTexture_c1d5i")
+texture_progress = SubResource("AtlasTexture_g28q7")
 
-[node name="CATEGORY_items" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/ShopProper" unique_id=321867570]
+[node name="HeadImage" type="TextureProgressBar" parent="Control/MarginContainer/VBoxContainer/ShopProper/ImageContainer" unique_id=1097933780]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+max_value = 117.0
+value = 117.0
+fill_mode = 3
+texture_progress = SubResource("AtlasTexture_ewv7p")
+
+[node name="HeartImage" type="TextureProgressBar" parent="Control/MarginContainer/VBoxContainer/ShopProper/ImageContainer" unique_id=1711176678]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+max_value = 117.0
+value = 117.0
+fill_mode = 3
+texture_progress = SubResource("AtlasTexture_bypw3")
+
+[node name="ThrustImage" type="TextureProgressBar" parent="Control/MarginContainer/VBoxContainer/ShopProper/ImageContainer" unique_id=346884812]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+max_value = 117.0
+value = 117.0
+fill_mode = 3
+texture_progress = SubResource("AtlasTexture_7qgum")
+
+[node name="BodyImage" type="TextureProgressBar" parent="Control/MarginContainer/VBoxContainer/ShopProper/ImageContainer" unique_id=2015262852]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 117.0
+max_value = 117.0
+value = 117.0
+fill_mode = 3
+texture_progress = SubResource("AtlasTexture_w46ac")
+
+[node name="SYSTEM_UPGRADES" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/ShopProper" unique_id=321867570]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/ShopProper/CATEGORY_items" unique_id=440162492]
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/ShopProper/SYSTEM_UPGRADES" unique_id=440162492]
 layout_mode = 2
-text = "INSERT CATEGORY"
+text = "SYSTEM UPGRADE"
 
-[node name="ShopItemRowComponent" parent="Control/MarginContainer/VBoxContainer/ShopProper/CATEGORY_items" unique_id=855921384 instance=ExtResource("6_d1e8e")]
+[node name="HEAD_items" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/ShopProper" unique_id=1485808806]
+visible = false
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/CATEGORY_items/ShopItemRowComponent" index="1" unique_id=1008983197]
-text = "INSERT THING HERE"
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items" unique_id=1877859288]
+layout_mode = 2
+text = "HEAD MODS"
+
+[node name="ShopItemRowComponent" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items" unique_id=855921384 instance=ExtResource("6_d1e8e")]
+layout_mode = 2
+item_image_hover = SubResource("AtlasTexture_4ausu")
+item_image_normal = SubResource("AtlasTexture_wg5n1")
+item_title_image = SubResource("AtlasTexture_jfmjy")
+item_desc = "AN AFFORMIDABLE PIECE OF HARDWARE.
+
+SCATTERY'S DAMAGE SCALES ON THE DISTANCE DASHED BEFORE HITTING THE ENEMY."
+item_id = "head_kineticram"
+price = 1
+
+[node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items/ShopItemRowComponent" index="1" unique_id=1008983197]
+text = "KINETIC RAM"
+
+[node name="ShopItemRowComponent2" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items" unique_id=887248219 instance=ExtResource("6_d1e8e")]
+layout_mode = 2
+item_image_hover = SubResource("AtlasTexture_1t7e8")
+item_image_normal = SubResource("AtlasTexture_1l4qi")
+item_title_image = SubResource("AtlasTexture_oc82b")
+item_desc = "LINED WITH TESLANIUM, MAKE ELECTRICITY A WEAPON.
+
+ARC ELECTRICITY AS SCATTERY CHARGES, DAMAGING MINOR DAMAGE TO SURROUNDING ENEMIES."
+item_id = "head_joltemitter"
+
+[node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items/ShopItemRowComponent2" index="1" unique_id=1008983197]
+text = "JOLT EMITTER"
+
+[node name="ShopItemRowComponent3" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items" unique_id=64726544 instance=ExtResource("6_d1e8e")]
+layout_mode = 2
+item_image_hover = SubResource("AtlasTexture_yn1w1")
+item_image_normal = SubResource("AtlasTexture_ftayh")
+item_title_image = SubResource("AtlasTexture_mxrd8")
+item_desc = "CHARGE IS FUEL.
+BOTKIND REIGNS.
+THE CITADEL IS FULL.
+
+DEFEATING ENEMIES CHARGES SCATTERY'S BATTERY."
+item_id = "head_siphondrill"
+
+[node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items/ShopItemRowComponent3" index="1" unique_id=1008983197]
+text = "SIPHON DRILL"
+
+[node name="HEART_items" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/ShopProper" unique_id=749497191]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items" unique_id=1692169427]
+layout_mode = 2
+text = "HEART MODULES"
+
+[node name="ShopItemRowComponent" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items" unique_id=1448459087 instance=ExtResource("6_d1e8e")]
+layout_mode = 2
+item_image_hover = SubResource("AtlasTexture_ygiq0")
+item_image_normal = SubResource("AtlasTexture_ws8ef")
+item_title_image = SubResource("AtlasTexture_b3xxp")
+item_desc = "HARDENED HYPERLIGHT CAPABLE OF IMMENSE PROTECTION.
+
+PROTECTS SCATTERY FROM GETTING HIT AND CONSUMES A LARGE AMOUNT OF BATTERY CHARGE. IF SCATTERY DOES NOT HAVE ENOUGH BATTERY, THEY DO NOT GET PROTECTED."
+item_id = "heart_weavelightshields"
+
+[node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items/ShopItemRowComponent" index="1" unique_id=1008983197]
+text = "WEAVE-LIGHT SHIELDS"
+
+[node name="ShopItemRowComponent2" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items" unique_id=1250848411 instance=ExtResource("6_d1e8e")]
+layout_mode = 2
+item_image_hover = SubResource("AtlasTexture_2crgl")
+item_image_normal = SubResource("AtlasTexture_s8a32")
+item_title_image = SubResource("AtlasTexture_28cym")
+item_desc = "EMERGENCY NANO-BOT TECHNOLOGY SOMEHOW MADE FROM SCRAPS.
+
+WHEN SCATTERY'S BATTERY DROPS TO ZERO, DESTROY BULLETS AROUND THEM."
+item_id = "heart_panicsurge"
+
+[node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items/ShopItemRowComponent2" index="1" unique_id=1008983197]
+text = "PANIC SURGE"
+
+[node name="ShopItemRowComponent3" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items" unique_id=987030904 instance=ExtResource("6_d1e8e")]
+layout_mode = 2
+item_image_hover = SubResource("AtlasTexture_iyt8o")
+item_image_normal = SubResource("AtlasTexture_o4kec")
+item_title_image = SubResource("AtlasTexture_fql8o")
+item_desc = "[shake]PROCEED.[/shake]
+
+WHEN SCATTERY GETS DAMAGED, PERMANENTLY INCREASE DASH BUT PERMANENTLY REDUCES MAX HEALTH. 
+
+[wave] RESETS WHEN GET SENT BACK TO PRISON."
+item_id = "heart_spikecore"
+
+[node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items/ShopItemRowComponent3" index="1" unique_id=1008983197]
+text = "SPIKE CORE"
+
+[node name="THRUST_items" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/ShopProper" unique_id=1399982288]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items" unique_id=386728910]
+layout_mode = 2
+text = "THRUST ENGINES"
+
+[node name="ShopItemRowComponent" parent="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items" unique_id=2059719965 instance=ExtResource("6_d1e8e")]
+layout_mode = 2
+item_image_hover = SubResource("AtlasTexture_kfenv")
+item_image_normal = SubResource("AtlasTexture_bykhl")
+item_title_image = SubResource("AtlasTexture_a2dy8")
+item_desc = "CRUDE QUANTUM TECHNOLOGY.
+
+SCATTERY TELEPORTS INSTEAD OF DASH BUT HAS A SLIGHT DELAY AFTER CHARGING THE TELEPORT."
+item_id = "thrust_warpcog"
+
+[node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items/ShopItemRowComponent" index="1" unique_id=1008983197]
+text = "WARP COG"
+
+[node name="ShopItemRowComponent2" parent="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items" unique_id=1483681643 instance=ExtResource("6_d1e8e")]
+layout_mode = 2
+item_image_hover = SubResource("AtlasTexture_vvo5g")
+item_image_normal = SubResource("AtlasTexture_2amvs")
+item_title_image = SubResource("AtlasTexture_nbejq")
+item_desc = "BATTERY EFFICIENT DASHES.
+
+SCATTERY'S DASHES ARE MUCH SHORTER BUT USES LESS BATTERY."
+item_id = "thrust_recursivetreads"
+
+[node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items/ShopItemRowComponent2" index="1" unique_id=1008983197]
+text = "RECURSIVE TREADS"
+
+[node name="ShopItemRowComponent3" parent="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items" unique_id=1027185176 instance=ExtResource("6_d1e8e")]
+layout_mode = 2
+item_image_hover = SubResource("AtlasTexture_8xjli")
+item_image_normal = SubResource("AtlasTexture_cv0yj")
+item_title_image = SubResource("AtlasTexture_2xcib")
+item_desc = "IT'S LIKE SOME KIND OF TERMINAL FRICTION (TM)
+
+CHAINING DASHES CONSECUTIVELY INCREASES SPEED AND DISTANCE OF SUBSEQUENT DASHES."
+item_id = "thrust_momentumengine"
+
+[node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items/ShopItemRowComponent3" index="1" unique_id=1008983197]
+text = "MOMENTUM ENGINE"
 
 [node name="ItemHintMessage" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper" unique_id=2009844807]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.5
 theme_override_fonts/normal_font = ExtResource("5_s10j0")
 bbcode_enabled = true
 text = "CHARGE X TO UNLEASH A DEVASTATING ATTACK"
@@ -281,6 +666,7 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="PrevButton" type="Button" parent="Control/MarginContainer/VBoxContainer/PageButtons" unique_id=1318959503]
+unique_name_in_owner = true
 layout_mode = 2
 text = "←"
 
@@ -289,10 +675,55 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="NextButton" type="Button" parent="Control/MarginContainer/VBoxContainer/PageButtons" unique_id=1043922011]
+unique_name_in_owner = true
 layout_mode = 2
 text = "→"
 
-[connection signal="ir_button_hover" from="Control/MarginContainer/VBoxContainer/ShopProper/CATEGORY_items/ShopItemRowComponent" to="." method="_on_shop_item_row_component_ir_button_hover"]
-[connection signal="ir_button_pressed" from="Control/MarginContainer/VBoxContainer/ShopProper/CATEGORY_items/ShopItemRowComponent" to="." method="_on_shop_item_row_component_ir_button_pressed"]
+[connection signal="ir_button_hover" from="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items/ShopItemRowComponent" to="." method="_on_shop_item_row_component_ir_button_hover"]
+[connection signal="ir_button_unhover" from="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items/ShopItemRowComponent" to="." method="_on_shop_item_row_component_ir_button_unhover"]
+[connection signal="ir_equip_toggle_requested" from="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items/ShopItemRowComponent" to="." method="_on_shop_item_row_component_ir_equip_toggle_requested"]
+[connection signal="ir_purchase_requested" from="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items/ShopItemRowComponent" to="." method="_on_shop_item_row_component_ir_purchase_requested"]
+[connection signal="ir_button_hover" from="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items/ShopItemRowComponent2" to="." method="_on_shop_item_row_component_ir_button_hover"]
+[connection signal="ir_button_unhover" from="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items/ShopItemRowComponent2" to="." method="_on_shop_item_row_component_ir_button_unhover"]
+[connection signal="ir_equip_toggle_requested" from="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items/ShopItemRowComponent2" to="." method="_on_shop_item_row_component_ir_equip_toggle_requested"]
+[connection signal="ir_purchase_requested" from="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items/ShopItemRowComponent2" to="." method="_on_shop_item_row_component_ir_purchase_requested"]
+[connection signal="ir_button_hover" from="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items/ShopItemRowComponent3" to="." method="_on_shop_item_row_component_ir_button_hover"]
+[connection signal="ir_button_unhover" from="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items/ShopItemRowComponent3" to="." method="_on_shop_item_row_component_ir_button_unhover"]
+[connection signal="ir_equip_toggle_requested" from="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items/ShopItemRowComponent3" to="." method="_on_shop_item_row_component_ir_equip_toggle_requested"]
+[connection signal="ir_purchase_requested" from="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items/ShopItemRowComponent3" to="." method="_on_shop_item_row_component_ir_purchase_requested"]
+[connection signal="ir_button_hover" from="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items/ShopItemRowComponent" to="." method="_on_shop_item_row_component_ir_button_hover"]
+[connection signal="ir_button_unhover" from="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items/ShopItemRowComponent" to="." method="_on_shop_item_row_component_ir_button_unhover"]
+[connection signal="ir_equip_toggle_requested" from="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items/ShopItemRowComponent" to="." method="_on_shop_item_row_component_ir_equip_toggle_requested"]
+[connection signal="ir_purchase_requested" from="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items/ShopItemRowComponent" to="." method="_on_shop_item_row_component_ir_purchase_requested"]
+[connection signal="ir_button_hover" from="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items/ShopItemRowComponent2" to="." method="_on_shop_item_row_component_ir_button_hover"]
+[connection signal="ir_button_unhover" from="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items/ShopItemRowComponent2" to="." method="_on_shop_item_row_component_ir_button_unhover"]
+[connection signal="ir_equip_toggle_requested" from="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items/ShopItemRowComponent2" to="." method="_on_shop_item_row_component_ir_equip_toggle_requested"]
+[connection signal="ir_purchase_requested" from="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items/ShopItemRowComponent2" to="." method="_on_shop_item_row_component_ir_purchase_requested"]
+[connection signal="ir_button_hover" from="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items/ShopItemRowComponent3" to="." method="_on_shop_item_row_component_ir_button_hover"]
+[connection signal="ir_button_unhover" from="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items/ShopItemRowComponent3" to="." method="_on_shop_item_row_component_ir_button_unhover"]
+[connection signal="ir_equip_toggle_requested" from="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items/ShopItemRowComponent3" to="." method="_on_shop_item_row_component_ir_equip_toggle_requested"]
+[connection signal="ir_purchase_requested" from="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items/ShopItemRowComponent3" to="." method="_on_shop_item_row_component_ir_purchase_requested"]
+[connection signal="ir_button_hover" from="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items/ShopItemRowComponent" to="." method="_on_shop_item_row_component_ir_button_hover"]
+[connection signal="ir_button_unhover" from="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items/ShopItemRowComponent" to="." method="_on_shop_item_row_component_ir_button_unhover"]
+[connection signal="ir_equip_toggle_requested" from="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items/ShopItemRowComponent" to="." method="_on_shop_item_row_component_ir_equip_toggle_requested"]
+[connection signal="ir_purchase_requested" from="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items/ShopItemRowComponent" to="." method="_on_shop_item_row_component_ir_purchase_requested"]
+[connection signal="ir_button_hover" from="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items/ShopItemRowComponent2" to="." method="_on_shop_item_row_component_ir_button_hover"]
+[connection signal="ir_button_unhover" from="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items/ShopItemRowComponent2" to="." method="_on_shop_item_row_component_ir_button_unhover"]
+[connection signal="ir_equip_toggle_requested" from="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items/ShopItemRowComponent2" to="." method="_on_shop_item_row_component_ir_equip_toggle_requested"]
+[connection signal="ir_purchase_requested" from="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items/ShopItemRowComponent2" to="." method="_on_shop_item_row_component_ir_purchase_requested"]
+[connection signal="ir_button_hover" from="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items/ShopItemRowComponent3" to="." method="_on_shop_item_row_component_ir_button_hover"]
+[connection signal="ir_button_unhover" from="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items/ShopItemRowComponent3" to="." method="_on_shop_item_row_component_ir_button_unhover"]
+[connection signal="ir_equip_toggle_requested" from="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items/ShopItemRowComponent3" to="." method="_on_shop_item_row_component_ir_equip_toggle_requested"]
+[connection signal="ir_purchase_requested" from="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items/ShopItemRowComponent3" to="." method="_on_shop_item_row_component_ir_purchase_requested"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/PageButtons/PrevButton" to="." method="_on_prev_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/PageButtons/NextButton" to="." method="_on_next_button_pressed"]
 
-[editable path="Control/MarginContainer/VBoxContainer/ShopProper/CATEGORY_items/ShopItemRowComponent"]
+[editable path="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items/ShopItemRowComponent"]
+[editable path="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items/ShopItemRowComponent2"]
+[editable path="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items/ShopItemRowComponent3"]
+[editable path="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items/ShopItemRowComponent"]
+[editable path="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items/ShopItemRowComponent2"]
+[editable path="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items/ShopItemRowComponent3"]
+[editable path="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items/ShopItemRowComponent"]
+[editable path="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items/ShopItemRowComponent2"]
+[editable path="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items/ShopItemRowComponent3"]

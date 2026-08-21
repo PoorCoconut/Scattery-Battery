@@ -21,10 +21,13 @@ var charging = false
 
 func _ready():
 	hurtbox_component.connect("knockback_received", _on_knockback_received)
+	hitbox_component.monitorable = false
 
 func _physics_process(delta):
 	look_at(get_global_mouse_position())
+	hitbox_component.monitorable = true
 	if Input.is_action_pressed("charge"):
+		
 		charging = true
 		time_held = min(time_held + delta, max_time)
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
@@ -37,12 +40,16 @@ func _physics_process(delta):
 		var dash_dir = (get_global_mouse_position() - global_position).normalized()
 		velocity = dash_dir * SPEED * charge_ratio
 		time_held = 0.0
+		
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 		
 		charge_light.texture_scale = lerpf(charge_light.texture_scale, 0.0, 0.1)
 		charge_sfx.pitch_scale = lerpf(charge_sfx.pitch_scale, 0.0, 0.1)
 	move_and_slide()
+	
+	if velocity.length() < 0.2 :
+		hitbox_component.monitorable = false
 
 func _on_knockback_received(direction: Vector2, force: float) -> void:
 	GameManager.do_camera_shake(3.0, 0.5)
@@ -53,3 +60,4 @@ func _on_health_component_hp_changed(new_hp: Variant, max_hp: Variant) -> void:
 
 func _on_health_component_died() -> void:
 	SoundBank.play_sfx("fatal")
+	queue_free()
