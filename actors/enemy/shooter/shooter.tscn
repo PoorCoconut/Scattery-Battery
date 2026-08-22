@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://brsq8e07rdmej"]
+
+[ext_resource type="PackedScene" uid="uid://cd0gji0ohlvxv" path="res://systems/Entity Components/Health Component/HealthComponent.tscn" id="1_fac5v"]
+[ext_resource type="Script" uid="uid://brf7iyi75uqob" path="res://actors/enemy/shooter/shooter.gd" id="1_p63q0"]
+[ext_resource type="PackedScene" uid="uid://p3eg848tu85" path="res://systems/Entity Components/Hitbox and Hurtbox Components/HurtBox/hurtbox_component.tscn" id="2_fu5r6"]
+[ext_resource type="PackedScene" uid="uid://lm5apyaik0bb" path="res://systems/BulletSpawner/BulletSpawner.tscn" id="4_vneo5"]
+[ext_resource type="PackedScene" uid="uid://68m0pnw6g6rw" path="res://game_objects/Bullets/EnemyBullet/enemy_bullet.tscn" id="5_lvpfx"]
+[ext_resource type="Texture2D" uid="uid://xuh8rsknn4jr" path="res://game_assets/gen_sprites.png" id="6_vneo5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dh4t2"]
+radius = 7.071068
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p63q0"]
+atlas = ExtResource("6_vneo5")
+region = Rect2(80, 0, 16, 16)
+
+[node name="Shooter" type="CharacterBody2D" unique_id=562312312 groups=["enemies"]]
+script = ExtResource("1_p63q0")
+
+[node name="HealthComponent" parent="." unique_id=1869818733 instance=ExtResource("1_fac5v")]
+MAX_HP = 1
+
+[node name="HurtboxComponent" parent="." unique_id=330416737 node_paths=PackedStringArray("health_component") instance=ExtResource("2_fu5r6")]
+collision_layer = 128
+collision_mask = 272
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=1993016751]
+shape = SubResource("CircleShape2D_dh4t2")
+
+[node name="BulletSpawner" parent="." unique_id=932716607 instance=ExtResource("4_vneo5")]
+bullet_scene = ExtResource("5_lvpfx")
+auto_fire = true
+bullet_count = 1
+explosion = true
+cooldown = 5.0
+target_player = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1918045192]
+rotation = 1.5707964
+texture = SubResource("AtlasTexture_p63q0")
+
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="hp_changed" from="HealthComponent" to="." method="_on_health_component_hp_changed"]
+
+[editable path="HurtboxComponent"]

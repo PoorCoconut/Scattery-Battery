@@ -1,20 +1,23 @@
 [gd_scene format=3 uid="uid://68m0pnw6g6rw"]
 
 [ext_resource type="Script" uid="uid://bv3acijesalrk" path="res://game_objects/Bullets/EnemyBullet/enemy_bullet.gd" id="1_j43ut"]
-[ext_resource type="Texture2D" uid="uid://t67xqjexi8od" path="res://game_assets/actors/light_sprite.png" id="2_l5p7e"]
+[ext_resource type="Texture2D" uid="uid://xuh8rsknn4jr" path="res://game_assets/gen_sprites.png" id="2_j43ut"]
 [ext_resource type="PackedScene" uid="uid://c58coiv6jurie" path="res://systems/Entity Components/Hitbox and Hurtbox Components/HitBox/hitbox_component.tscn" id="3_trg4k"]
 [ext_resource type="PackedScene" uid="uid://depdp5g8qy1y" path="res://systems/Trail Component/trail.tscn" id="4_ogkgv"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
-radius = 3.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_vneo5"]
+atlas = ExtResource("2_j43ut")
+region = Rect2(64, 64, 16, 16)
 
-[node name="EnemyBullet" type="CharacterBody2D" unique_id=440368404 node_paths=PackedStringArray("hitbox_component")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
+radius = 2.0
+
+[node name="EnemyBullet" type="CharacterBody2D" unique_id=440368404 node_paths=PackedStringArray("hitbox_component") groups=["bullets"]]
 script = ExtResource("1_j43ut")
 hitbox_component = NodePath("HitboxComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1618607014]
-scale = Vector2(0.16666667, 0.16666667)
-texture = ExtResource("2_l5p7e")
+texture = SubResource("AtlasTexture_vneo5")
 
 [node name="HitboxComponent" parent="." unique_id=1755790887 instance=ExtResource("3_trg4k")]
 collision_layer = 64
@@ -25,8 +28,11 @@ shape = SubResource("CircleShape2D_4kxuq")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1364352707]
 rect = Rect2(-16, -16, 32, 32)
+show_rect = false
 
 [node name="Trail" parent="." unique_id=1115313834 instance=ExtResource("4_ogkgv")]
+width = 1.0
+default_color = Color(0.8039216, 0.3764706, 0.5764706, 1)
 MAX_LENGTH = 40
 
 [editable path="HitboxComponent"]

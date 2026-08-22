@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://dmdws5ffuam5b"]
+
+[ext_resource type="Texture2D" uid="uid://xuh8rsknn4jr" path="res://game_assets/gen_sprites.png" id="1_npumw"]
+[ext_resource type="Script" uid="uid://df50dvs2xi8oj" path="res://actors/enemy/bumper/bumper.gd" id="1_omly8"]
+[ext_resource type="PackedScene" uid="uid://cd0gji0ohlvxv" path="res://systems/Entity Components/Health Component/HealthComponent.tscn" id="2_omly8"]
+[ext_resource type="PackedScene" uid="uid://p3eg848tu85" path="res://systems/Entity Components/Hitbox and Hurtbox Components/HurtBox/hurtbox_component.tscn" id="3_1r26e"]
+[ext_resource type="PackedScene" uid="uid://c58coiv6jurie" path="res://systems/Entity Components/Hitbox and Hurtbox Components/HitBox/hitbox_component.tscn" id="4_mepfr"]
+[ext_resource type="PackedScene" uid="uid://depdp5g8qy1y" path="res://systems/Trail Component/trail.tscn" id="6_1r26e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kxuq"]
+atlas = ExtResource("1_npumw")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mti6b"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mm1bc"]
+radius = 7.0
+
+[sub_resource type="Curve" id="Curve_4kxuq"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.08510638, 1), 0.0, 0.0, 0, 0, Vector2(0.83829784, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
+radius = 5.0990195
+
+[sub_resource type="Gradient" id="Gradient_1r26e"]
+offsets = PackedFloat32Array(0, 0.28708133, 0.71291864, 1)
+colors = PackedColorArray(0.8039216, 0.3764706, 0.5764706, 0, 0.8039216, 0.3764706, 0.5764706, 1, 0.8039216, 0.3764706, 0.5764706, 1, 0.8039216, 0.3764706, 0.5764706, 0)
+
+[node name="Bumper" type="CharacterBody2D" unique_id=594413418 groups=["enemies"]]
+collision_layer = 4
+script = ExtResource("1_omly8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=18262653]
+texture = SubResource("AtlasTexture_4kxuq")
+
+[node name="HealthComponent" parent="." unique_id=1869818733 instance=ExtResource("2_omly8")]
+MAX_HP = 3
+
+[node name="HurtboxComponent" parent="." unique_id=330416737 node_paths=PackedStringArray("health_component") instance=ExtResource("3_1r26e")]
+collision_layer = 128
+collision_mask = 272
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=1993016751]
+shape = SubResource("CircleShape2D_mti6b")
+
+[node name="HitboxComponent" parent="." unique_id=1755790887 instance=ExtResource("4_mepfr")]
+collision_layer = 64
+damage = 0
+knockback_force = 100.0
+
+[node name="CollisionShape2D" parent="HitboxComponent" index="0" unique_id=939226382]
+shape = SubResource("CircleShape2D_mm1bc")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2066390477]
+amount = 20
+emission_shape = 1
+emission_sphere_radius = 6.16
+gravity = Vector2(0, 0)
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+orbit_velocity_min = -0.1
+orbit_velocity_max = 0.1
+scale_amount_curve = SubResource("Curve_4kxuq")
+color = Color(0.8039216, 0.3764706, 0.5764706, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1891566801]
+shape = SubResource("CircleShape2D_4kxuq")
+
+[node name="Trail" parent="." unique_id=1115313834 instance=ExtResource("6_1r26e")]
+default_color = Color(0.8039216, 0.3764706, 0.5764706, 1)
+gradient = SubResource("Gradient_1r26e")
+joint_mode = 2
+end_cap_mode = 2
+
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="hp_changed" from="HealthComponent" to="." method="_on_health_component_hp_changed"]
+[connection signal="knockback_received" from="HurtboxComponent" to="." method="_on_hurtbox_component_knockback_received"]
+
+[editable path="HurtboxComponent"]
+[editable path="HitboxComponent"]

@@ -8,7 +8,8 @@ var save_keys := [
 	"hp_upgrade", "damage_upgrade", "weight_upgrade", "battery_upgrade",
 	"ram_mod", "jolt_mod", "siphon_mod",
 	"shield_mod", "panic_mod", "spike_mod",
-	"warp_mod", "skitter_mod", "engi_mod"]
+	"warp_mod", "skitter_mod", "engi_mod",
+	"equipped_head", "equipped_heart", "equipped_thrust"]
 
 #Resource variables
 var scrap : int = 0
@@ -20,7 +21,7 @@ var damage_upgrade : int = 0
 var weight_upgrade : int = 0
 var battery_upgrade : int = 0
 
-##Modular Upgrades
+##Modular Upgrades (owned flags)
 #Head
 var ram_mod : bool = false
 var jolt_mod : bool = false
@@ -35,6 +36,11 @@ var spike_mod : bool = false
 var warp_mod : bool = false
 var skitter_mod : bool = false
 var engi_mod : bool = false
+
+##Currently equipped item_id per category ("" = nothing equipped)
+var equipped_head : String = ""
+var equipped_heart : String = ""
+var equipped_thrust : String = ""
 
 func _ready() -> void:
 	check_game_data()

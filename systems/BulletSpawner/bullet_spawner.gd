@@ -30,6 +30,7 @@ enum PatternType {
 
 # --- Aiming ---
 @export_group("Aiming")
+@export var target_player : bool = false
 @export var target: Node2D ## Optional. If set, FAN/SPIRAL aim toward this target instead of the spawner's rotation.
 @export var rotation_offset_degrees: float = 90.0 ## Corrects for bullets whose forward is local "up" (-Y) instead of "right" (+X). Set to 0 if your bullet moves along +X.
 
@@ -46,6 +47,9 @@ const _COMPASS_DEGREES := [-90.0, -45.0, 0.0, 45.0, 90.0, 135.0, 180.0, -135.0] 
 func _ready() -> void:
 	if auto_fire:
 		start_firing()
+	if target_player:
+		if get_tree().get_first_node_in_group("player"):
+			target = get_tree().get_first_node_in_group("player")
 
 func start_firing() -> void:
 	if _is_firing:

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bba8y76y0cbc4"]
+
+[ext_resource type="Script" uid="uid://d0p8ty1pa82oi" path="res://systems/PlayerModComponent/player_mod_component.gd" id="1_b26ol"]
+
+[node name="PlayerModComponent" type="Node" unique_id=689010764]
+script = ExtResource("1_b26ol")

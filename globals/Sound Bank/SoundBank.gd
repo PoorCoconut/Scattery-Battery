@@ -11,7 +11,22 @@ var sfx_dict : Dictionary = {
 	"player_hit" : preload("uid://f7np8jg7dr6"),
 	"prison" : preload("uid://qa7axtu2pfd2"),
 	"start" : preload("uid://bm18jy4s4tf4y"),
-	"success" : preload("uid://c43la73evymb")
+	"success" : preload("uid://c43la73evymb"),
+	
+	"battery" : preload("uid://vsmhu521y5w4"),
+	"battery_charge" : preload("uid://cb1e7wigxjm2i"),
+	"enemy_hit" : preload("uid://dnbrm1iaxasw"),
+	"crit" : preload("uid://q7mqtaddudw4"),
+	"dash" : preload("uid://ci1ss662w0agh"),
+	"drone" : preload("uid://88ku5eraoc3r"),
+	"laser" : preload("uid://f3qx4kf3lro2"),
+	"magic" : preload("uid://csebftvp74gnw"),
+	"battery_low" : preload("uid://cdi6j37xwwdxo"),
+	"power_up": preload("uid://djrvt7msr42aq"),
+	"power_down": preload("uid://v5drntaa3oid"),
+	"click" : preload("uid://b3g60bwmnbg34"),
+	
+	"menu" : preload("uid://c7tpsrsweownr")
 }
 
 func _ready() -> void:

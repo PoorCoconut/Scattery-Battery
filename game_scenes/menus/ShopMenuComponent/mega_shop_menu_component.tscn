@@ -9,10 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://dg257eg6glbq1" path="res://game_scenes/menus/ShopMenuComponent/Shop Item Row Component/shop_item_row_component.tscn" id="6_d1e8e"]
 [ext_resource type="Texture2D" uid="uid://b3l2r4syc7vg1" path="res://game_assets/menu/player_upgrades.png" id="6_v5alq"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v5alq"]
-atlas = ExtResource("6_v5alq")
-region = Rect2(48, 0, 48, 117)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_c1cs1"]
 atlas = ExtResource("6_v5alq")
 region = Rect2(96, 0, 48, 117)
@@ -20,6 +16,10 @@ region = Rect2(96, 0, 48, 117)
 [sub_resource type="AtlasTexture" id="AtlasTexture_nne14"]
 atlas = ExtResource("6_v5alq")
 region = Rect2(288, 0, 48, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5alq"]
+atlas = ExtResource("6_v5alq")
+region = Rect2(48, 0, 48, 117)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1kq0g"]
 atlas = ExtResource("6_v5alq")
@@ -247,6 +247,17 @@ category_default_textures = Dictionary[String, Texture2D]({
 "head": SubResource("AtlasTexture_33wd3"),
 "heart": SubResource("AtlasTexture_5qyu4"),
 "thrust": SubResource("AtlasTexture_malya")
+})
+id_to_owned_key = Dictionary[String, String]({
+"head_joltemitter": "jolt_mod",
+"head_kineticram": "ram_mod",
+"head_siphondrill": "siphon_mod",
+"heart_panicsurge": "panic_mod",
+"heart_spikecore": "spike_mod",
+"heart_weavelightshields": "shield_mod",
+"thrust_momentumengine": "engi_mod",
+"thrust_recursivetreads": "skitter_mod",
+"thrust_warpcog": "warp_mod"
 })
 
 [node name="Control" type="Control" parent="." unique_id=38718440]
@@ -513,42 +524,42 @@ text = "HEAD MODS"
 
 [node name="ShopItemRowComponent" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items" unique_id=855921384 instance=ExtResource("6_d1e8e")]
 layout_mode = 2
-item_image_hover = SubResource("AtlasTexture_4ausu")
-item_image_normal = SubResource("AtlasTexture_wg5n1")
-item_title_image = SubResource("AtlasTexture_jfmjy")
 item_desc = "AN AFFORMIDABLE PIECE OF HARDWARE.
 
 SCATTERY'S DAMAGE SCALES ON THE DISTANCE DASHED BEFORE HITTING THE ENEMY."
 item_id = "head_kineticram"
 price = 1
+item_image_hover = SubResource("AtlasTexture_4ausu")
+item_image_normal = SubResource("AtlasTexture_wg5n1")
+item_title_image = SubResource("AtlasTexture_jfmjy")
 
 [node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items/ShopItemRowComponent" index="1" unique_id=1008983197]
 text = "KINETIC RAM"
 
 [node name="ShopItemRowComponent2" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items" unique_id=887248219 instance=ExtResource("6_d1e8e")]
 layout_mode = 2
-item_image_hover = SubResource("AtlasTexture_1t7e8")
-item_image_normal = SubResource("AtlasTexture_1l4qi")
-item_title_image = SubResource("AtlasTexture_oc82b")
 item_desc = "LINED WITH TESLANIUM, MAKE ELECTRICITY A WEAPON.
 
 ARC ELECTRICITY AS SCATTERY CHARGES, DAMAGING MINOR DAMAGE TO SURROUNDING ENEMIES."
 item_id = "head_joltemitter"
+item_image_hover = SubResource("AtlasTexture_1t7e8")
+item_image_normal = SubResource("AtlasTexture_1l4qi")
+item_title_image = SubResource("AtlasTexture_oc82b")
 
 [node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items/ShopItemRowComponent2" index="1" unique_id=1008983197]
 text = "JOLT EMITTER"
 
 [node name="ShopItemRowComponent3" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items" unique_id=64726544 instance=ExtResource("6_d1e8e")]
 layout_mode = 2
-item_image_hover = SubResource("AtlasTexture_yn1w1")
-item_image_normal = SubResource("AtlasTexture_ftayh")
-item_title_image = SubResource("AtlasTexture_mxrd8")
 item_desc = "CHARGE IS FUEL.
 BOTKIND REIGNS.
 THE CITADEL IS FULL.
 
 DEFEATING ENEMIES CHARGES SCATTERY'S BATTERY."
 item_id = "head_siphondrill"
+item_image_hover = SubResource("AtlasTexture_yn1w1")
+item_image_normal = SubResource("AtlasTexture_ftayh")
+item_title_image = SubResource("AtlasTexture_mxrd8")
 
 [node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items/ShopItemRowComponent3" index="1" unique_id=1008983197]
 text = "SIPHON DRILL"
@@ -564,41 +575,41 @@ text = "HEART MODULES"
 
 [node name="ShopItemRowComponent" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items" unique_id=1448459087 instance=ExtResource("6_d1e8e")]
 layout_mode = 2
-item_image_hover = SubResource("AtlasTexture_ygiq0")
-item_image_normal = SubResource("AtlasTexture_ws8ef")
-item_title_image = SubResource("AtlasTexture_b3xxp")
 item_desc = "HARDENED HYPERLIGHT CAPABLE OF IMMENSE PROTECTION.
 
 PROTECTS SCATTERY FROM GETTING HIT AND CONSUMES A LARGE AMOUNT OF BATTERY CHARGE. IF SCATTERY DOES NOT HAVE ENOUGH BATTERY, THEY DO NOT GET PROTECTED."
 item_id = "heart_weavelightshields"
+item_image_hover = SubResource("AtlasTexture_ygiq0")
+item_image_normal = SubResource("AtlasTexture_ws8ef")
+item_title_image = SubResource("AtlasTexture_b3xxp")
 
 [node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items/ShopItemRowComponent" index="1" unique_id=1008983197]
 text = "WEAVE-LIGHT SHIELDS"
 
 [node name="ShopItemRowComponent2" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items" unique_id=1250848411 instance=ExtResource("6_d1e8e")]
 layout_mode = 2
-item_image_hover = SubResource("AtlasTexture_2crgl")
-item_image_normal = SubResource("AtlasTexture_s8a32")
-item_title_image = SubResource("AtlasTexture_28cym")
 item_desc = "EMERGENCY NANO-BOT TECHNOLOGY SOMEHOW MADE FROM SCRAPS.
 
 WHEN SCATTERY'S BATTERY DROPS TO ZERO, DESTROY BULLETS AROUND THEM."
 item_id = "heart_panicsurge"
+item_image_hover = SubResource("AtlasTexture_2crgl")
+item_image_normal = SubResource("AtlasTexture_s8a32")
+item_title_image = SubResource("AtlasTexture_28cym")
 
 [node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items/ShopItemRowComponent2" index="1" unique_id=1008983197]
 text = "PANIC SURGE"
 
 [node name="ShopItemRowComponent3" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items" unique_id=987030904 instance=ExtResource("6_d1e8e")]
 layout_mode = 2
-item_image_hover = SubResource("AtlasTexture_iyt8o")
-item_image_normal = SubResource("AtlasTexture_o4kec")
-item_title_image = SubResource("AtlasTexture_fql8o")
 item_desc = "[shake]PROCEED.[/shake]
 
 WHEN SCATTERY GETS DAMAGED, PERMANENTLY INCREASE DASH BUT PERMANENTLY REDUCES MAX HEALTH. 
 
 [wave] RESETS WHEN GET SENT BACK TO PRISON."
 item_id = "heart_spikecore"
+item_image_hover = SubResource("AtlasTexture_iyt8o")
+item_image_normal = SubResource("AtlasTexture_o4kec")
+item_title_image = SubResource("AtlasTexture_fql8o")
 
 [node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/HEART_items/ShopItemRowComponent3" index="1" unique_id=1008983197]
 text = "SPIKE CORE"
@@ -614,39 +625,39 @@ text = "THRUST ENGINES"
 
 [node name="ShopItemRowComponent" parent="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items" unique_id=2059719965 instance=ExtResource("6_d1e8e")]
 layout_mode = 2
-item_image_hover = SubResource("AtlasTexture_kfenv")
-item_image_normal = SubResource("AtlasTexture_bykhl")
-item_title_image = SubResource("AtlasTexture_a2dy8")
 item_desc = "CRUDE QUANTUM TECHNOLOGY.
 
 SCATTERY TELEPORTS INSTEAD OF DASH BUT HAS A SLIGHT DELAY AFTER CHARGING THE TELEPORT."
 item_id = "thrust_warpcog"
+item_image_hover = SubResource("AtlasTexture_kfenv")
+item_image_normal = SubResource("AtlasTexture_bykhl")
+item_title_image = SubResource("AtlasTexture_a2dy8")
 
 [node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items/ShopItemRowComponent" index="1" unique_id=1008983197]
 text = "WARP COG"
 
 [node name="ShopItemRowComponent2" parent="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items" unique_id=1483681643 instance=ExtResource("6_d1e8e")]
 layout_mode = 2
-item_image_hover = SubResource("AtlasTexture_vvo5g")
-item_image_normal = SubResource("AtlasTexture_2amvs")
-item_title_image = SubResource("AtlasTexture_nbejq")
 item_desc = "BATTERY EFFICIENT DASHES.
 
 SCATTERY'S DASHES ARE MUCH SHORTER BUT USES LESS BATTERY."
 item_id = "thrust_recursivetreads"
+item_image_hover = SubResource("AtlasTexture_vvo5g")
+item_image_normal = SubResource("AtlasTexture_2amvs")
+item_title_image = SubResource("AtlasTexture_nbejq")
 
 [node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items/ShopItemRowComponent2" index="1" unique_id=1008983197]
 text = "RECURSIVE TREADS"
 
 [node name="ShopItemRowComponent3" parent="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items" unique_id=1027185176 instance=ExtResource("6_d1e8e")]
 layout_mode = 2
-item_image_hover = SubResource("AtlasTexture_8xjli")
-item_image_normal = SubResource("AtlasTexture_cv0yj")
-item_title_image = SubResource("AtlasTexture_2xcib")
 item_desc = "IT'S LIKE SOME KIND OF TERMINAL FRICTION (TM)
 
 CHAINING DASHES CONSECUTIVELY INCREASES SPEED AND DISTANCE OF SUBSEQUENT DASHES."
 item_id = "thrust_momentumengine"
+item_image_hover = SubResource("AtlasTexture_8xjli")
+item_image_normal = SubResource("AtlasTexture_cv0yj")
+item_title_image = SubResource("AtlasTexture_2xcib")
 
 [node name="ItemLabel" parent="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items/ShopItemRowComponent3" index="1" unique_id=1008983197]
 text = "MOMENTUM ENGINE"
@@ -670,9 +681,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "←"
 
-[node name="Control" type="Control" parent="Control/MarginContainer/VBoxContainer/PageButtons" unique_id=2142593756]
+[node name="PrisonButton" type="Button" parent="Control/MarginContainer/VBoxContainer/PageButtons" unique_id=843220521]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+text = "ESCAPE PRISON"
 
 [node name="NextButton" type="Button" parent="Control/MarginContainer/VBoxContainer/PageButtons" unique_id=1043922011]
 unique_name_in_owner = true
@@ -716,6 +729,7 @@ text = "→"
 [connection signal="ir_equip_toggle_requested" from="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items/ShopItemRowComponent3" to="." method="_on_shop_item_row_component_ir_equip_toggle_requested"]
 [connection signal="ir_purchase_requested" from="Control/MarginContainer/VBoxContainer/ShopProper/THRUST_items/ShopItemRowComponent3" to="." method="_on_shop_item_row_component_ir_purchase_requested"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/PageButtons/PrevButton" to="." method="_on_prev_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/PageButtons/PrisonButton" to="." method="_on_prison_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/PageButtons/NextButton" to="." method="_on_next_button_pressed"]
 
 [editable path="Control/MarginContainer/VBoxContainer/ShopProper/HEAD_items/ShopItemRowComponent"]

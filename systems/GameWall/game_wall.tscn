@@ -19,12 +19,13 @@ size = Vector2(368, 16)
 size = Vector2(16, 224)
 
 [node name="GameWall" type="StaticBody2D" unique_id=187292963]
+collision_mask = 15
 script = ExtResource("1_mmplt")
 wall_knockback = 100.0
 
 [node name="NorthWall" parent="." unique_id=1755790887 instance=ExtResource("1_7q2ee")]
 position = Vector2(10, -10)
-collision_layer = 64
+collision_layer = 256
 damage = 0
 knockback_force = 80.0
 use_fixed_direction = true
@@ -36,7 +37,7 @@ shape = SubResource("RectangleShape2D_mmplt")
 
 [node name="WestWall" parent="." unique_id=989879070 instance=ExtResource("1_7q2ee")]
 position = Vector2(-8, 0)
-collision_layer = 64
+collision_layer = 256
 damage = 0
 knockback_force = 80.0
 use_fixed_direction = true
@@ -48,7 +49,7 @@ shape = SubResource("RectangleShape2D_tc674")
 
 [node name="EastWall" parent="." unique_id=343840391 instance=ExtResource("1_7q2ee")]
 position = Vector2(336, 0)
-collision_layer = 64
+collision_layer = 256
 damage = 0
 knockback_force = 80.0
 use_fixed_direction = true
@@ -60,7 +61,7 @@ shape = SubResource("RectangleShape2D_tc674")
 
 [node name="SouthWall" parent="." unique_id=708993781 instance=ExtResource("1_7q2ee")]
 position = Vector2(0, 180)
-collision_layer = 64
+collision_layer = 256
 damage = 0
 knockback_force = 80.0
 use_fixed_direction = true

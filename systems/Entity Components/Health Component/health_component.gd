@@ -4,9 +4,11 @@ class_name HealthComponent
 @export var MAX_HP : int
 ## Saving Grace stops one-shots. When damage is fatal, sets health to 1 instead (one-time).
 @export var hasSavingGrace : bool = false
+@export var death_val : int = 0
 var CUR_HP : int
 
 signal hp_changed(new_hp, max_hp)
+signal healed
 signal died
 
 func _ready() -> void:
@@ -18,15 +20,18 @@ func _ready() -> void:
 
 ##FLAT DAMAGE
 func take_damage(damage : int) -> void:
-	if hasSavingGrace and CUR_HP - damage <= 0:
+	if hasSavingGrace and CUR_HP - damage <= death_val:
 		CUR_HP = 1
 		hasSavingGrace = false
 	else:
-		CUR_HP = clampi(CUR_HP - damage, 0, MAX_HP)
-
+		CUR_HP = clampi(CUR_HP - damage, death_val, MAX_HP)
 	hp_changed.emit(CUR_HP, MAX_HP)
 	check_death()
 
+func heal(heal_val : int) -> void:
+	CUR_HP += heal_val
+	healed.emit()
+
 func check_death() -> void:
-	if CUR_HP <= 0:
+	if CUR_HP <= death_val:
 		died.emit()

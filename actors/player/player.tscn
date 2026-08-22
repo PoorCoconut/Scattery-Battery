@@ -7,6 +7,46 @@
 [ext_resource type="PackedScene" uid="uid://p3eg848tu85" path="res://systems/Entity Components/Hitbox and Hurtbox Components/HurtBox/hurtbox_component.tscn" id="4_6p1w3"]
 [ext_resource type="PackedScene" uid="uid://depdp5g8qy1y" path="res://systems/Trail Component/trail.tscn" id="6_15y17"]
 [ext_resource type="AudioStream" uid="uid://c05rr0cnmmjb2" path="res://sound/sfx/sfx_charge1.mp3" id="7_bop6h"]
+[ext_resource type="Texture2D" uid="uid://btqgbll02qu5y" path="res://actors/player/charge_ring.png" id="8_a744p"]
+[ext_resource type="Texture2D" uid="uid://xuh8rsknn4jr" path="res://game_assets/gen_sprites.png" id="9_388e2"]
+[ext_resource type="Texture2D" uid="uid://bppwijpiivfks" path="res://game_assets/menu/dotted-line.png" id="10_lsln6"]
+[ext_resource type="PackedScene" uid="uid://bba8y76y0cbc4" path="res://systems/PlayerModComponent/player_mod_component.tscn" id="11_hiosj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
+radius = 7.071068
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_388e2"]
+atlas = ExtResource("8_a744p")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i0a3i"]
+load_path = "res://.godot/imported/charge_ring.png-842f5354f0f2a984e63692f5b34ab3de.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsln6"]
+atlas = SubResource("CompressedTexture2D_i0a3i")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hiosj"]
+atlas = ExtResource("8_a744p")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssdk0"]
+atlas = SubResource("CompressedTexture2D_i0a3i")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7aotg"]
+atlas = ExtResource("8_a744p")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k67x5"]
+atlas = SubResource("CompressedTexture2D_i0a3i")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6p1w3"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d1e8e"]
+radius = 4.0
 
 [sub_resource type="Gradient" id="Gradient_6p1w3"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -17,34 +57,80 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.85, 0.85)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6p1w3"]
-radius = 9.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_d1e8e"]
-radius = 4.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
-radius = 7.071068
+[sub_resource type="AtlasTexture" id="AtlasTexture_a744p"]
+atlas = ExtResource("9_388e2")
+region = Rect2(64, 48, 16, 16)
 
 [node name="Player" type="CharacterBody2D" unique_id=823440349 groups=["player"]]
+collision_layer = 2
 script = ExtResource("1_nvxhs")
 
-[node name="ChargeLight" type="PointLight2D" parent="." unique_id=590319133]
-texture_filter = 1
-texture = SubResource("GradientTexture2D_15y17")
-
 [node name="HealthComponent" parent="." unique_id=1869818733 instance=ExtResource("2_ilk7j")]
-MAX_HP = 3
+MAX_HP = 5
+death_val = -1
+
+[node name="Sounds" type="Node" parent="." unique_id=918852859]
+
+[node name="ChargeSFX" type="AudioStreamPlayer" parent="Sounds" unique_id=285505262]
+stream = ExtResource("7_bop6h")
+pitch_scale = 0.01
+autoplay = true
+bus = &"SFX"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1630069212]
 light_mask = 2
 rotation = 1.5707964
 texture = ExtResource("3_6p1w3")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=679441233]
+shape = SubResource("CircleShape2D_4kxuq")
+debug_color = Color(0.64893085, 0.520807, 1.540184e-06, 0)
+
+[node name="BatteryCharge" type="Node2D" parent="." unique_id=1120851978]
+top_level = true
+
+[node name="3Charge" type="TextureProgressBar" parent="BatteryCharge" unique_id=287237672]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+pivot_offset = Vector2(16, 16)
+max_value = 3.0
+fill_mode = 4
+radial_initial_angle = 270.0
+texture_under = SubResource("AtlasTexture_388e2")
+texture_progress = SubResource("AtlasTexture_lsln6")
+
+[node name="5Charge" type="TextureProgressBar" parent="BatteryCharge" unique_id=652722381]
+visible = false
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+pivot_offset = Vector2(16, 16)
+max_value = 5.0
+fill_mode = 4
+radial_initial_angle = 313.5
+texture_under = SubResource("AtlasTexture_hiosj")
+texture_progress = SubResource("AtlasTexture_ssdk0")
+
+[node name="8Charge" type="TextureProgressBar" parent="BatteryCharge" unique_id=2042813085]
+visible = false
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+pivot_offset = Vector2(16, 16)
+max_value = 8.0
+fill_mode = 4
+radial_initial_angle = 328.1
+texture_under = SubResource("AtlasTexture_7aotg")
+texture_progress = SubResource("AtlasTexture_k67x5")
+
 [node name="HitboxComponent" parent="." unique_id=1755790887 instance=ExtResource("3_lsqbn")]
 collision_layer = 16
 damage = 2
-knockback_force = 50.0
+knockback_force = 100.0
 
 [node name="CollisionShape2D" parent="HitboxComponent" index="0" unique_id=939226382]
 shape = SubResource("CircleShape2D_6p1w3")
@@ -58,23 +144,33 @@ health_component = NodePath("../HealthComponent")
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=1993016751]
 shape = SubResource("CircleShape2D_d1e8e")
 
+[node name="ChargeLight" type="PointLight2D" parent="." unique_id=590319133]
+texture_filter = 1
+texture = SubResource("GradientTexture2D_15y17")
+
 [node name="Trail" parent="." unique_id=1115313834 instance=ExtResource("6_15y17")]
 MAX_LENGTH = 50
 
-[node name="Sounds" type="Node" parent="." unique_id=918852859]
+[node name="Timer" type="Timer" parent="." unique_id=125628756]
+wait_time = 3.5
+autostart = true
 
-[node name="ChargeSFX" type="AudioStreamPlayer" parent="Sounds" unique_id=285505262]
-stream = ExtResource("7_bop6h")
-pitch_scale = 0.01
-autoplay = true
-bus = &"SFX"
+[node name="DashMarker" type="Sprite2D" parent="." unique_id=1072184336]
+unique_name_in_owner = true
+texture = SubResource("AtlasTexture_a744p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=679441233]
-shape = SubResource("CircleShape2D_4kxuq")
-debug_color = Color(0.64893085, 0.520807, 1.540184e-06, 0)
+[node name="DashLine" type="Line2D" parent="." unique_id=731657318]
+unique_name_in_owner = true
+texture_repeat = 2
+default_color = Color(1, 1, 1, 0.3137255)
+texture = ExtResource("10_lsln6")
+texture_mode = 1
+
+[node name="ModComponent" parent="." unique_id=689010764 instance=ExtResource("11_hiosj")]
 
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="hp_changed" from="HealthComponent" to="." method="_on_health_component_hp_changed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="HitboxComponent"]
 [editable path="HurtboxComponent"]

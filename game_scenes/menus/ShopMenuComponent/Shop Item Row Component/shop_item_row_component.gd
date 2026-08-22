@@ -1,14 +1,17 @@
 extends HBoxContainer
 class_name ShopItemRowComponent
 
-@export_group("Item Icons")
-@export var item_image_hover : Texture2D = preload("uid://b5ha2ebfytva7")   # legacy/reference; superseded by state textures below
-@export var item_image_normal : Texture2D
-@export var item_title_image : Texture2D
+@export_category("BASIC PARAMETERS")
 @export_multiline("ENTER ITEM DESCRIPTION") var item_desc : String = "DESCRIPTION"
 ##There are 3 categories with 3 modules. Use category_module as the item id. ex: head_kineticram
 @export var item_id : String = "type_item"
 @export var price : int = 0
+
+@export_group("Item Icons")
+@export var item_image_hover : Texture2D = preload("uid://b5ha2ebfytva7")   # legacy/reference; superseded by state textures below
+@export var item_image_normal : Texture2D
+@export var item_title_image : Texture2D
+
 
 @export_group("Locked State (Not Purchased)")
 @export var locked_normal : Texture2D

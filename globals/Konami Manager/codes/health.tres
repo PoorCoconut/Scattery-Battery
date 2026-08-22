@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="KonamiCode" format=3 uid="uid://cre02pwh402lb"]
+
+[ext_resource type="Script" uid="uid://rs60b3fygs8g" path="res://globals/Konami Manager/konami_code.gd" id="1_ep4f2"]
+
+[resource]
+script = ExtResource("1_ep4f2")
+code_name = "health"
+sequence = Array[String](["left", "right", "up", "down"])
+metadata/_custom_type_script = "uid://rs60b3fygs8g"

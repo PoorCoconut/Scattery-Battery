@@ -1,6 +1,10 @@
 extends Node
-#The Events bus is a place where you can pass around signals in a clean manner
-#Below is an example of a signal. This signal is connected via code in the PlayerHUD
-
 
 signal player_hp_updated(current_hp, max_hp)
+signal player_max_hp_updated(max_hp)
+
+signal mod_equipped(category: String, id: String)
+signal mod_unequipped(category: String, id: String)
+
+## Enemies must emit this on death (Events.enemy_died.emit()) for Siphon Drill to work.
+signal enemy_died

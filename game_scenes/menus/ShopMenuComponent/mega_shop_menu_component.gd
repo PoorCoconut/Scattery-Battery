@@ -19,6 +19,10 @@ class_name PrisonShopMenuComponent
 @export var category_title_textures : Dictionary[String, Texture2D]
 @export var category_default_textures : Dictionary[String, Texture2D]
 
+## Maps an item_id (e.g. "head_kineticram") to its "owned" bool var name on SaveManager (e.g. "ram_mod").
+## Fill this in the Inspector for every purchasable mod item.
+@export var id_to_owned_key : Dictionary[String, String]
+
 var current_index : int = 0
 var current_category : String :
 	get: return category_names[current_index]
@@ -59,12 +63,31 @@ func _ready() -> void:
 		bar.texture_progress = category_default_textures.get(category)
 		bar.value = bar.max_value
 
+	_restore_from_save()
 	_update_category_view()
 	_update_currency_label()
 
 	ss_message.visible_ratio = 0
 	ss_message.text = shop_messages[randi_range(0, shop_messages.size() - 1)]
 	show_shop()
+
+## Re-applies purchased/equipped state from SaveManager onto the row nodes and bars.
+## Call this after all ShopItemRowComponents are in the tree (they add_to_group in their own _ready).
+func _restore_from_save() -> void:
+	for category in progress_bars.keys():
+		for member in get_tree().get_nodes_in_group(category):
+			if not member is ShopItemRowComponent:
+				continue
+			var row: ShopItemRowComponent = member
+			var owned_key : String = id_to_owned_key.get(row.item_id, "")
+			if owned_key != "" and SaveManager.get(owned_key) == true:
+				row.mark_purchased()
+
+		var equipped_id : String = SaveManager.get("equipped_" + category)
+		if equipped_id != "":
+			for member in get_tree().get_nodes_in_group(category):
+				if member is ShopItemRowComponent and member.item_id == equipped_id:
+					_equip_item(member, equipped_id, false)  # false = don't re-emit/re-save, just visuals
 
 func show_shop():
 	var tween = get_tree().create_tween()
@@ -153,18 +176,27 @@ func _on_shop_item_row_component_ir_purchase_requested(row: ShopItemRowComponent
 	SaveManager.scrap -= item_price
 	_update_currency_label()
 	row.mark_purchased()
+
+	var owned_key : String = id_to_owned_key.get(id, "")
+	if owned_key != "":
+		SaveManager.set(owned_key, true)
+	else:
+		push_warning("No SaveManager owned-key mapped for item '%s' — purchase won't persist!" % id)
+
 	_equip_item(row, id)
 	item_purchased.emit(id)
+	SaveManager.save_game_data()
 
 func _on_shop_item_row_component_ir_equip_toggle_requested(row: ShopItemRowComponent, id: String) -> void:
 	if row.is_equipped:
 		_unequip_category(row.get_category())
 	else:
 		_equip_item(row, id)
+	SaveManager.save_game_data()
 
-func _equip_item(row: ShopItemRowComponent, id: String) -> void:
+func _equip_item(row: ShopItemRowComponent, id: String, notify: bool = true) -> void:
 	var category := row.get_category()
-	_unequip_category(category)   # clear whatever was previously equipped here
+	_unequip_category(category, notify)   # clear whatever was previously equipped here
 
 	row.set_equipped(true)
 	equipped_ids[category] = id
@@ -175,17 +207,29 @@ func _equip_item(row: ShopItemRowComponent, id: String) -> void:
 		target_bar.texture_progress = row.item_image_normal
 		target_bar.value = target_bar.max_value
 
-	item_equipped.emit(id)
+	SaveManager.set("equipped_" + category, id)
 
-func _unequip_category(category: String) -> void:
+	if notify:
+		item_equipped.emit(id)
+		Events.mod_equipped.emit(category, id)
+
+func _unequip_category(category: String, notify: bool = true) -> void:
 	for member in get_tree().get_nodes_in_group(category):
 		if member is ShopItemRowComponent and member.is_equipped:
 			member.set_equipped(false)
-			item_unequipped.emit(member.item_id)
+			if notify:
+				item_unequipped.emit(member.item_id)
+				Events.mod_unequipped.emit(category, member.item_id)
+
 	equipped_ids.erase(category)
 	selected_textures.erase(category)
+	SaveManager.set("equipped_" + category, "")
 
 	var target_bar: TextureProgressBar = progress_bars.get(category)
 	if target_bar:
 		target_bar.texture_progress = category_default_textures.get(category)
 		target_bar.value = target_bar.max_value
+
+
+func _on_prison_button_pressed() -> void:
+	GameManager.load_next_level("res://game_scenes/worlds/Arena/world_arena.tscn")
